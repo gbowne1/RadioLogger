@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Radio Logger</title>
+		<meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
+		<meta name="keywords" content="">
+		<meta name="theme-color" content="gray" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+			integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+			integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+			integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
+			integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
+			crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+			integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+			crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
+			integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
+			crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<link rel="manifest" href="manifest.json">
+		<link rel="manifest" href="/app.webmanifest" crossorigin="use-credentials">
+		<link rel='stylesheet' type='text/css' href='./public/css/login.css'>
+		<link rel='stylesheet' type='text/css' href='/public/styles.css'>
+	</head>
+	<div class="container">
+		<div class="tabs">
+			<ul>
+				<li id="register"><a>Register</a></li>
+				<li id="login"><a>Login</a></li>
+				<li id="reset"><a>Reset</a></li>
+			</ul>
+		</div>
+		<div class="forms">
+			<div class="register">
+				<p>Register</p>
+
+				<form method="post" name="register" action="signUp.js">
+					<input class="field" name="uname" required type="text" placeholder="Username" />
+					<input class="field" name="email" required type="email" placeholder="myusername@domain.com" />
+					<input id="p1" class="field" name="pass" required type="password" placeholder="Password"
+						onchange="form1.p2.pattern=this.value;" />
+					<input id="p2" class="field" name="pass_confirm" required type="password"
+						placeholder="Rewrite Password" required />
+					<input type="submit" onclick="checkpass()" value="Sign Up" />
+				</form>
+			</div>
+
+			<div class="login hidden">
+				<p>Sign In</p>
+
+				<form method="post" name="register" action="signIn.js">
+					<input class="field" name="email" required type="email" placeholder="* myusername@domain.com" />
+					<input class="field" name="pass" required type="password" name="pass" placeholder="* Password" />
+					<input type="checkbox" name="terms"> <em>Keep me logged in </em> <input type="submit"
+						value="Login" />
+				</form>
+			</div>
+
+			<div class="reset hidden">
+				<p>Reset Your Password</p>
+
+				<form method="post" name="register" action="resetPassword.js">
+					<input class="field" name="email" type="email" placeholder="*myusername@domain.com" required />
+					<input class="field" name="pass_old" type="password" placeholder="*Old Password" required />
+					<input class="field" name="pass_new" type="password" placeholder="*New Password" required />
+					<div class="btn">
+						<input type="submit" value="Get New One !" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="../js/tabs.js"></script>
+	<script src="../js/login.js"></script>
+	</body>
+
+</html>
