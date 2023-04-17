@@ -1,0 +1,15 @@
+{
+"env": {
+    "node": true,
+    "browser": true,
+    "es2016": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 2016
+  },
+  "rules": {
+    "eqeqeq": "warn",
+    "no-undef": "error"
+  }
+}
