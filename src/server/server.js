@@ -9,7 +9,7 @@ const axios = require('axios');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-
+const MONGO_URL = require('./config/db.js');
 
 const app = express();
 
@@ -25,7 +25,8 @@ app.use(session({
 }));
 
 // Database connection
-mongoose.connect('your-mongodb-connection-string', {
+console.log(MONGO_URL);
+mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -90,5 +91,5 @@ app.use('*', (req, res) => {
 
 // Listen on port 3000 or the next available port
 const server = app.listen(3000, () => {
-  console.log(`Server is listening on port: \${server.address().port}`);
+  console.log(`Server is listening on port: ${server.address().port}`);
 });
