@@ -25,7 +25,6 @@ app.use(session({
 }));
 
 // Database connection
-console.log(MONGO_URL);
 mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true
