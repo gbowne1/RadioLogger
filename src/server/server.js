@@ -10,6 +10,8 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const MONGO_URL = require('./config/db.js');
+const morgan = require('morgan');
+const { default: helmet } = require('helmet');
 
 const app = express();
 
@@ -23,6 +25,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(morgan('combined'));
+app.use(helmet());
 
 // Database connection
 mongoose.connect(MONGO_URL, {
