@@ -19,17 +19,17 @@
         "panel": "new"
       }
     },
-	{
-		"label": "Debug Application",
-		"type": "shell",
-		"command": "node --inspect-brk /${workspaceFolder}/index.js",
-		"problemMatcher": [],
-		"group": "build",
-		"presentation": {
-		  "reveal": "always",
-		  "panel": "new"
-		},
-		"isBackground": false
-	}
+    {
+      "label": "Debug Application",
+      "type": "shell",
+      "command": "node --inspect-brk /${workspaceFolder}/index.js",
+      "problemMatcher": [],
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "isBackground": false
+    }
   ]
 }
