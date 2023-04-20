@@ -17,7 +17,7 @@
 	},
 	"[javascript]": {
 		"editor.maxTokenizationLineLength": 2500,
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.defaultFormatter": "vscode.typescript-language-features",
 	},
 	"[markdown]": {
 		"editor.unicodeHighlight.ambiguousCharacters": false,
