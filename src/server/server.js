@@ -15,8 +15,14 @@ const { default: helmet } = require('helmet');
 
 const app = express();
 
+app.all('/*', function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 // Middleware setup
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -42,48 +48,65 @@ app.set('view engine', 'html');
 app.set('views', path.join(__dirname, '../client'));
 
 // Routes
-app.get('/dashboard', (req, res) => {  res.sendFile('/public/dashboard/dashboard.html', { root: __dirname }); });
+app.get('/dashboard', (req, res) => {
+  res.header('Content-type', 'text/html');
+  res.sendFile('/public/dashboard/dashboard.html', { root: __dirname });
+});
 app.get('/contestlog', (req, res) => { /* ... */ });
 app.get('/scanlog', (req, res) => { /* ... */ });
 app.get('/swllog', (req, res) => { /* ... */ });
-app.get('/signin', (req, res) => { res.sendFile('/public/login/login.html', { root: __dirname }); });
+app.get('/signin', (req, res) => {
+  res.header('Content-type', 'text/html');
+  res.sendFile('/public/login/login.html', { root: __dirname });
+});
 app.get('/hamlog', (req, res) => { /* ... */ });
 app.get('/signup', (req, res) => { /* ... */ });
 app.get('/mwlog', (req, res) => { /* ... */ });
 app.get('/vhflog', (req, res) => { /* ... */ });
 app.get('/auth', (req, res) => { /* ... */ });
-app.get('/logout', (req, res) => { /* ... */ });
+app.get('/logout', function (req, res) {
+  req.session.destroy();
+  res.send("logout success!");
+});
 
 // User schema for demonstration purposes
 const users = [];
 
 app.post('/auth', async (req, res) => {
-	const user = users.find(u => u.email === req.body.email);
-	if (user == null) {
-	  return res.status(400).send('User not found');
-	}
+  const user = users.find(u => u.email === req.body.email);
+  if (user == null) {
+    return res.status(400).send('User not found');
+  }
 
-	try {
-	  if (await bcrypt.compare(req.body.password, user.password)) {
-		const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-		res.json({ accessToken: accessToken });
-	  } else {
-		res.status(401).send('Invalid password');
-	  }
-	} catch {
-	  res.status(500).send('Error during authentication');
-	}
+  try {
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+      res.json({ accessToken: accessToken });
+    } else {
+      res.status(401).send('Invalid password');
+    }
+  } catch {
+    res.status(500).send('Error during authentication');
+  }
 });
 
 app.post('/signup', async (req, res) => {
-	try {
-		const hashedPassword = await bcrypt.hash(req.body.password, 10);
-		const user = { email: req.body.email, password: hashedPassword };
-		users.push(user);
-		res.status(201).send('User created');
-	  } catch {
-		res.status(500).send('Error creating user');
-	  }
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const user = { email: req.body.email, password: hashedPassword };
+    users.push(user);
+    res.status(201).send('User created');
+  } catch {
+    res.status(500).send('Error creating user');
+  }
+});
+
+app.post('/signin', (req, res) => {
+  res.header('Content-type', 'text/html');
+  // Insert Login Code Here
+  let username = req.body.username;
+  let password = req.body.password;
+  res.send(`Username: ${username} Password: ${password}`);
 });
 
 app.post('/reset-password', async (req, res) => {
