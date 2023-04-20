@@ -12,7 +12,7 @@ const passport = require('passport');
 const MONGO_URL = require('./config/db.js');
 const morgan = require('morgan');
 const { default: helmet } = require('helmet');
-
+const routes = require('./routes/index.js');
 const app = express();
 
 app.all('/*', function (req, res, next) {
@@ -47,18 +47,15 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, '../client'));
 
+//static files
+app.use(express.static(path.join(__dirname, '../client/public')));
+
 // Routes
-app.get('/dashboard', (req, res) => {
-  res.header('Content-type', 'text/html');
-  res.sendFile('/public/dashboard/dashboard.html', { root: __dirname });
-});
+routes(app);
+
 app.get('/contestlog', (req, res) => { /* ... */ });
 app.get('/scanlog', (req, res) => { /* ... */ });
 app.get('/swllog', (req, res) => { /* ... */ });
-app.get('/signin', (req, res) => {
-  res.header('Content-type', 'text/html');
-  res.sendFile('/public/login/login.html', { root: __dirname });
-});
 app.get('/hamlog', (req, res) => { /* ... */ });
 app.get('/signup', (req, res) => { /* ... */ });
 app.get('/mwlog', (req, res) => { /* ... */ });
