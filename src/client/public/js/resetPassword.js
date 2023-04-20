@@ -6,7 +6,21 @@ document.querySelector('form[action="resetPassword.js"]').addEventListener('subm
   const oldPassword = form.pass_old.value;
   const newPassword = form.pass_new.value;
 
-  // Perform your password reset logic here (e.g., AJAX call to the server)
-
-  console.log('Password reset:', { email, oldPassword, newPassword });
+  $.ajax({
+    type: 'POST',
+    url: '/reset-password',
+    data: {
+      email: email,
+      oldPassword: oldPassword,
+      newPassword: newPassword
+    },
+    success: function(response) {
+      // Handle success, e.g., display a success message
+      console.log(response);
+    },
+    error: function(error) {
+      // Handle error, e.g., display an error message
+      console.log(error);
+    }
+  });
 });

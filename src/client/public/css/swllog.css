@@ -1,0 +1,56 @@
+/* swllog.css */
+
+/* Fixed Blue Navbar */
+.navbar {
+  width: 1884px;
+  height: 60px;
+}
+
+/* Off-canvas Drawer */
+.offcanvas {
+  width: 250px;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  left: auto !important;
+  right: 0;
+}
+
+/* Light Theme */
+.light-theme {
+  background-color: white;
+  color: black;
+}
+
+.light-theme .navbar {
+  background-color: blue;
+}
+
+.light-theme a {
+  color: #0033cc;
+}
+
+/* Dark Theme */
+.dark-theme {
+  background-color: #121212;
+  color: #eee;
+}
+
+.dark-theme .navbar {
+  background-color: black;
+}
+
+.dark-theme a {
+  color: #809fff;
+}
+
+/* High contrast for accessibility */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid #0066ff;
+  outline-offset: 2px;
+}

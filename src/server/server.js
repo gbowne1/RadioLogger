@@ -42,16 +42,15 @@ app.set('view engine', 'html');
 app.set('views', path.join(__dirname, '../client'));
 
 // Routes
-app.get('/dashboard', (req, res) => { /* ... */ });
+app.get('/dashboard', (req, res) => {  res.sendFile('/public/dashboard/dashboard.html', { root: __dirname }); });
 app.get('/contestlog', (req, res) => { /* ... */ });
 app.get('/scanlog', (req, res) => { /* ... */ });
 app.get('/swllog', (req, res) => { /* ... */ });
-app.get('/signin', (req, res) => { /* ... */ });
+app.get('/signin', (req, res) => { res.sendFile('/public/login/login.html', { root: __dirname }); });
 app.get('/hamlog', (req, res) => { /* ... */ });
 app.get('/signup', (req, res) => { /* ... */ });
 app.get('/mwlog', (req, res) => { /* ... */ });
 app.get('/vhflog', (req, res) => { /* ... */ });
-app.get('/signin/login', (req, res) => { /* ... */ });
 app.get('/auth', (req, res) => { /* ... */ });
 app.get('/logout', (req, res) => { /* ... */ });
 
@@ -85,6 +84,31 @@ app.post('/signup', async (req, res) => {
 	  } catch {
 		res.status(500).send('Error creating user');
 	  }
+});
+
+app.post('/reset-password', async (req, res) => {
+  const email = req.body.email;
+  const oldPassword = req.body.oldPassword;
+  const newPassword = req.body.newPassword;
+
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    res.status(404).json({ message: 'User not found' });
+    return;
+  }
+
+  const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
+
+  if (!isPasswordValid) {
+    res.status(400).json({ message: 'Incorrect old password' });
+    return;
+  }
+
+  const hashedNewPassword = await bcrypt.hash(newPassword, Number(bcryptSalt));
+  await User.updateOne({ _id: user._id }, { $set: { password: hashedNewPassword } });
+
+  res.status(200).json({ message: 'Password reset successful' });
 });
 
 // 404 Not Found
