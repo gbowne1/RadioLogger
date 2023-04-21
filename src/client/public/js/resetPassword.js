@@ -1,4 +1,4 @@
-document.querySelector('form[action="resetPassword.js"]').addEventListener('submit', function(e) {
+document.querySelector('form[action="resetPassword.js"]').addEventListener('submit', function (e) {
   e.preventDefault();
 
   const form = e.target;
@@ -14,11 +14,11 @@ document.querySelector('form[action="resetPassword.js"]').addEventListener('subm
       oldPassword: oldPassword,
       newPassword: newPassword
     },
-    success: function(response) {
+    success: function (response) {
       // Handle success, e.g., display a success message
       console.log(response);
     },
-    error: function(error) {
+    error: function (error) {
       // Handle error, e.g., display an error message
       console.log(error);
     }

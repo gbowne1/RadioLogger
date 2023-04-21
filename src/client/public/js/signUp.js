@@ -1,4 +1,4 @@
-document.querySelector('form[action="signUp.js"]').addEventListener('submit', function(e) {
+document.querySelector('form[action="signUp.js"]').addEventListener('submit', function (e) {
   e.preventDefault();
 
   const form = e.target;
