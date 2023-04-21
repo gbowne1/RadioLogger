@@ -32,7 +32,28 @@ app.use(session({
   saveUninitialized: true
 }));
 app.use(morgan('combined'));
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [
+          "'self'",
+          "https://cdnjs.cloudflare.com",
+          "'sha256-3hJxKkQr_PLil1YTgO1yE1IN5eJU88If3lZf7-4ey_Q='",
+          // Add other external script sources here
+        ],
+        styleSrc: [
+          "'self'",
+          "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/",
+          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/",
+          // Add external style sources here
+        ],
+        // Add other directives as needed
+      },
+    },
+  })
+);
 
 // Database connection
 mongoose.connect(MONGO_URL, {
@@ -60,7 +81,7 @@ app.get('/hamlog', (req, res) => { /* ... */ });
 app.get('/signup', (req, res) => { /* ... */ });
 app.get('/mwlog', (req, res) => { /* ... */ });
 app.get('/vhflog', (req, res) => { /* ... */ });
-app.get('/auth', (req, res) => { /* ... */ });
+app.get('/auth', cors(), (req, res) => { /* ... */ });
 app.get('/logout', function (req, res) {
   req.session.destroy();
   res.send("logout success!");
@@ -69,7 +90,7 @@ app.get('/logout', function (req, res) {
 // User schema for demonstration purposes
 const users = [];
 
-app.post('/auth', async (req, res) => {
+app.post('/auth', cors(), async (req, res) => {
   const user = users.find(u => u.email === req.body.email);
   if (user == null) {
     return res.status(400).send('User not found');

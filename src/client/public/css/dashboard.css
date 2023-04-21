@@ -1,5 +1,9 @@
 body {
   font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
 }
 
 .navbar {
@@ -24,8 +28,4 @@ body {
   width: 100%;
   height: 160px;
   object-fit: cover;
-}
-
-.row {
-  margin-left: 260px;
 }
