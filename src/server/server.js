@@ -34,22 +34,36 @@ app.use(session({
 app.use(morgan('combined'));
 app.use(
   helmet({
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: { policy: "cross-origin" },
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: [
           "'self'",
+          "'unsafe-inline'",
           "https://cdnjs.cloudflare.com",
-          "'sha256-3hJxKkQr_PLil1YTgO1yE1IN5eJU88If3lZf7-4ey_Q='",
-          // Add other external script sources here
         ],
         styleSrc: [
           "'self'",
-          "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/",
-          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/",
-          // Add external style sources here
+          "'unsafe-inline'",
+          "https://cdnjs.cloudflare.com",
+          "https://fonts.googleapis.com",
         ],
-        // Add other directives as needed
+        fontSrc: [
+          "'self'",
+          "https://fonts.gstatic.com",
+          "https://cdnjs.cloudflare.com",
+          "data:"
+        ],
+        imgSrc: [
+          "'self'",
+          "https://via.placeholder.com",
+          "data:",
+          "blob:",
+          "https://i.stack.imgur.com"
+
+        ]
       },
     },
   })
