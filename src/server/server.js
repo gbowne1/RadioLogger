@@ -101,6 +101,21 @@ app.get('/logout', function (req, res) {
   res.send("logout success!");
 });
 
+app.get('/dashboard', (req, res) => {
+  // Check if the user is authenticated
+  if (!req.user) {
+    // If not, redirect to the login page
+    res.redirect('/login');
+  } else {
+    // If yes, render the dashboard page
+    res.render('dashboard', { user: req.user });
+  }
+});
+
+app.get('/auth', function(req, res) {
+  res.json({ accessToken: accessToken });
+});
+
 // User schema for demonstration purposes
 const users = [];
 

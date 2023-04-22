@@ -25,8 +25,8 @@
     <div class="container">
       <nav class="tabs">
         <ul>
-          <li id="register"><a>Register</a></li>
-          <li id="login"><a>Login</a></li>
+          <li id="register" tabindex="0"><a>Register</a></li>
+          <li id="login" tabindex="0"><a>Login</a></li>
           <li id="reset"><a>Reset</a></li>
         </ul>
       </nav>
@@ -34,7 +34,8 @@
         <div class="register">
           <h2>Register</h2>
           <form method="post" action="signUp.js">
-            <input class="field" name="uname" required type="text" placeholder="Username" />
+            <label for="Username:"></label>
+            <input type="text" class="field" name="uname" id="user" required placeholder="Username" />
             <input class="field" name="email" required type="email" placeholder="myusername@domain.com" />
             <input id="p1" class="field" name="pass" required type="password" placeholder="Password" />
             <input id="p2" class="field" name="pass_confirm" required type="password" placeholder="Rewrite Password" />

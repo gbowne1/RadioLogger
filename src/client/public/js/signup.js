@@ -1,27 +1,27 @@
 const form = document.getElementById('signup-form');
 
 function validateForm() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const reenterPassword = document.getElementById('reenter-password').value;
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const reenterPassword = document.getElementById('reenter-password').value;
 
-    // perform validation checks
-    if (name === '' || email === '' || password === '' || reenterPassword === '') {
-      alert('Please fill in all fields.');
-      return false;
-    }
-
-    if (password !== reenterPassword) {
-      alert('Passwords do not match.');
-      return false;
-    }
-
-    return true;
+  // perform validation checks
+  if (name === '' || email === '' || password === '' || reenterPassword === '') {
+    alert('Please fill in all fields.');
+    return false;
   }
 
+  if (password !== reenterPassword) {
+    alert('Passwords do not match.');
+    return false;
+  }
 
-form.addEventListener('submit', function(event) {
+  return true;
+}
+
+
+form.addEventListener('submit', function (event) {
   event.preventDefault();
 
   const name = document.getElementById('name').value;
@@ -55,17 +55,17 @@ form.addEventListener('submit', function(event) {
     },
     body: JSON.stringify(data)
   })
-  .then(response => {
-    if (response.ok) {
-      alert('Signup successful!');
-    //   window.location.href = '/dashboard';
-    } else {
-      throw new Error('Signup failed.');
-      console.log(response)
-    }
-  })
-  .catch(error => {
-    console.error(error);
-    alert('Signup failed.');
-  });
+    .then(response => {
+      if (response.ok) {
+        alert('Signup successful!');
+        //   window.location.href = '/dashboard';
+      } else {
+        throw new Error('Signup failed.');
+        console.log(response)
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert('Signup failed.');
+    });
 });

@@ -14,6 +14,7 @@ body {
   background-color: blue;
   background-size: cover;
   font-family: "Fira Code";
+  color: #333333;
 }
 
 .container {
@@ -62,6 +63,12 @@ body {
   display: block;
   line-height: 50px;
   text-align: center;
+}
+
+.tabs li:focus {
+  outline: none;
+  background-color: gray;
+  color: white;
 }
 
 .forms {

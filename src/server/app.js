@@ -1,10 +1,11 @@
-// /src/server/app.js
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 
-// Middleware and routes configuration
-// ...
 
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Host config
+
+// define your routes and middleware here
