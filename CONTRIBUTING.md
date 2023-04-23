@@ -21,7 +21,6 @@ I have not created an official style guide yet. I also have not created a Figma 
 
 If you are not sure what to work on, review the issues list.  There are also TODO's that will listed in the included [TODO.md](./TODO.md) file.
 
-
 The browser also gives us things like localStorage, IndexedDB, Session Storage, Cookies and Cache Storage.  Please make use of them where necessary.
 
 Please also make sure you use accessibility (A11y) with themes and styles paying attention to focus styling, contrast and keyboard-accesibility.
