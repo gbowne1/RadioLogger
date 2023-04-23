@@ -10,10 +10,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const MONGO_URL = require('./config/db.js');
-const morgan = require('morgan');
+const morgan = require('./middlewares/morgan.middleware');
 const { default: helmet } = require('helmet');
 const routes = require('./routes/index.js');
 const app = express();
+const logger = require('./utils/logger');
 
 app.all('/*', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -31,7 +32,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-app.use(morgan('combined'));
+app.use(morgan);
 app.use(
   helmet({
     crossOriginEmbedderPolicy: false,
@@ -103,6 +104,7 @@ app.get('/logout', function (req, res) {
 
 app.get('/dashboard', (req, res) => {
   // Check if the user is authenticated
+  logger.error('Error unico');
   if (!req.user) {
     // If not, redirect to the login page
     res.redirect('/login');
@@ -188,5 +190,5 @@ app.use('*', (req, res) => {
 
 // Listen on port 3000 or the next available port
 const server = app.listen(3000, () => {
-  console.log(`Server is listening on port: ${server.address().port}`);
+  logger.info(`Server is listening on port: ${server.address().port}`);
 });
