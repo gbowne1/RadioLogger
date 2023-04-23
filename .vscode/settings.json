@@ -2,22 +2,22 @@
   "[json]": {
     "editor.quickSuggestions": {
       "strings": true,
-      "comments": "on",
+      "comments": "on"
     },
     "editor.defaultFormatter": "ZainChen.json",
     "editor.suggest.insertMode": "replace"
   },
   "[html]": {
     "editor.suggest.insertMode": "replace",
-    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[css]": {
     "editor.suggest.insertMode": "replace",
-    "editor.defaultFormatter": "vscode.css-language-features",
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "[javascript]": {
     "editor.maxTokenizationLineLength": 2500,
-    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[markdown]": {
     "editor.unicodeHighlight.ambiguousCharacters": false,
@@ -31,14 +31,14 @@
     "cSpell.fixSpellingWithRenameProvider": true,
     "cSpell.advanced.feature.useReferenceProviderWithRename": true,
     "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/",
-    "editor.defaultFormatter": "vscode.markdown-language-features",
+    "editor.defaultFormatter": "vscode.markdown-language-features"
   },
   "[jsonc]": {
     "editor.quickSuggestions": {
       "strings": true
     },
     "editor.suggest.insertMode": "replace",
-    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[yaml]": {
     "editor.insertSpaces": true,
@@ -49,7 +49,7 @@
       "comments": false,
       "strings": true
     },
-    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "liveServer.settings.port": 5500,
   "files.associations": {
@@ -57,5 +57,41 @@
   },
   "emmet.includeLanguages": {
     "javascriptreact": "javascriptreact"
-  }
+  },
+  "C_Cpp_Runner.cCompilerPath": "gcc",
+  "C_Cpp_Runner.cppCompilerPath": "g++",
+  "C_Cpp_Runner.debuggerPath": "gdb",
+  "C_Cpp_Runner.cStandard": "",
+  "C_Cpp_Runner.cppStandard": "",
+  "C_Cpp_Runner.msvcBatchPath": "",
+  "C_Cpp_Runner.useMsvc": false,
+  "C_Cpp_Runner.warnings": [
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wshadow",
+    "-Wformat=2",
+    "-Wconversion",
+    "-Wnull-dereference",
+    "-Wsign-conversion"
+  ],
+  "C_Cpp_Runner.enableWarnings": true,
+  "C_Cpp_Runner.warningsAsError": false,
+  "C_Cpp_Runner.compilerArgs": [],
+  "C_Cpp_Runner.linkerArgs": [],
+  "C_Cpp_Runner.includePaths": [],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
+  "C_Cpp_Runner.excludeSearch": [
+    "**/build",
+    "**/build/**",
+    "**/.*",
+    "**/.*/**",
+    "**/.vscode",
+    "**/.vscode/**"
+  ],
+  "C_Cpp_Runner.useAddressSanitizer": false,
+  "C_Cpp_Runner.showCompilationTime": false
 }
