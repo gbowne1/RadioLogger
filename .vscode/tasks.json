@@ -1,35 +1,42 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Install Dependencies",
-      "type": "shell",
-      "command": "npm install",
-      "problemMatcher": [],
-      "group": "build"
-    },
-    {
-      "label": "Run Application",
-      "type": "shell",
-      "command": "npm start",
-      "problemMatcher": [],
-      "group": "build",
-      "presentation": {
-        "reveal": "always",
-        "panel": "new"
-      }
-    },
-    {
-      "label": "Debug Application",
-      "type": "shell",
-      "command": "node --inspect-brk /${workspaceFolder}/index.js",
-      "problemMatcher": [],
-      "group": "build",
-      "presentation": {
-        "reveal": "always",
-        "panel": "new"
-      },
-      "isBackground": false
-    }
-  ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Install Dependencies",
+			"type": "shell",
+			"command": "npm install",
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run Application",
+			"type": "shell",
+			"command": "npm start",
+			"problemMatcher": [],
+			"group": "build",
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			}
+		},
+		{
+			"label": "Debug Application",
+			"type": "shell",
+			"command": "node --inspect-brk /${workspaceFolder}/index.js",
+			"problemMatcher": [],
+			"group": "build",
+			"presentation": {
+				"reveal": "always",
+				"panel": "new"
+			},
+			"isBackground": false
+		},
+		{
+			"type": "eslint",
+			"problemMatcher": [
+				"$eslint-stylish"
+			],
+			"label": "eslint: lint whole folder"
+		}
+	]
 }
