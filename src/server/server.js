@@ -1,5 +1,5 @@
 const express = require('express');
-const session = require('express-session');
+const session = require('./middlewares/session.middleware');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -11,7 +11,7 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const MONGO_URL = require('./config/db.js');
 const morgan = require('./middlewares/morgan.middleware');
-const { default: helmet } = require('helmet');
+const helmet = require('./middlewares/helmet.middleware');
 const routes = require('./routes/index.js');
 const app = express();
 const logger = require('./utils/logger');
@@ -27,48 +27,9 @@ app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(session({
-  secret: 'your-secret-key',
-  resave: false,
-  saveUninitialized: true
-}));
+app.use(session);
 app.use(morgan);
-app.use(
-  helmet({
-    crossOriginEmbedderPolicy: false,
-    crossOriginResourcePolicy: { policy: "cross-origin" },
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: [
-          "'self'",
-          "'unsafe-inline'",
-          "https://cdnjs.cloudflare.com",
-        ],
-        styleSrc: [
-          "'self'",
-          "'unsafe-inline'",
-          "https://cdnjs.cloudflare.com",
-          "https://fonts.googleapis.com",
-        ],
-        fontSrc: [
-          "'self'",
-          "https://fonts.gstatic.com",
-          "https://cdnjs.cloudflare.com",
-          "data:"
-        ],
-        imgSrc: [
-          "'self'",
-          "https://via.placeholder.com",
-          "data:",
-          "blob:",
-          "https://i.stack.imgur.com"
-
-        ]
-      },
-    },
-  })
-);
+app.use(helmet);
 
 // Database connection
 mongoose.connect(MONGO_URL, {
@@ -102,7 +63,7 @@ app.get('/logout', function (req, res) {
   res.send("logout success!");
 });
 
-app.get('/dashboard', (req, res) => {
+/*app.get('/dashboard', (req, res) => {
   // Check if the user is authenticated
   logger.error('Error unico');
   if (!req.user) {
@@ -112,7 +73,7 @@ app.get('/dashboard', (req, res) => {
     // If yes, render the dashboard page
     res.render('dashboard', { user: req.user });
   }
-});
+});*/
 
 app.get('/auth', function(req, res) {
   res.json({ accessToken: accessToken });
@@ -150,13 +111,13 @@ app.post('/signup', async (req, res) => {
   }
 });
 
-app.post('/signin', (req, res) => {
+/*app.post('/signin', (req, res) => {
   res.header('Content-type', 'text/html');
   // Insert Login Code Here
   let username = req.body.username;
   let password = req.body.password;
   res.send(`Username: ${username} Password: ${password}`);
-});
+});*/
 
 app.post('/reset-password', async (req, res) => {
   const email = req.body.email;
