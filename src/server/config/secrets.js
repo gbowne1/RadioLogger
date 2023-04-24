@@ -2,7 +2,7 @@ if(process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-const SECRET_SESSION = process.env.SECRET_SESSION || '';
+const SESSION_SECRET = process.env.SESSION_SECRET || '';
 
 module.exports = {
   SESSION_SECRET
