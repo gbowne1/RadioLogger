@@ -1,5 +1,4 @@
 const express = require('express');
-const session = require('./middlewares/session.middleware');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const MONGO_URL = require('./config/db.js');
+const session = require('./middlewares/session.middleware');
 const morgan = require('./middlewares/morgan.middleware');
 const helmet = require('./middlewares/helmet.middleware');
 const routes = require('./routes/index.js');
