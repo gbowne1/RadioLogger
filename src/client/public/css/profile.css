@@ -1,0 +1,65 @@
+/* Custom CSS for User Profile Page */
+
+/* Body */
+body {
+  background-color: powderblue;
+}
+
+/* Navbar */
+.navbar {
+  height: 60px;
+}
+
+/* Profile Picture */
+.profile_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Card */
+.card {
+  margin-bottom: 20px;
+}
+
+/* Card Header */
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: none;
+}
+
+/* Card Title */
+.card-header h3 {
+  margin-top: 0;
+}
+
+/* Card Body */
+.card-body {
+  padding: 20px;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Label */
+label {
+  font-weight: bold;
+}
+
+/* Submit Button */
+.btn-submit {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-submit:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+.btn-submit:focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
