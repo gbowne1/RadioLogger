@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
   <head>
-    <meta charset="UTF-8">
-    <title>Base Index</title>
+    <title>My Website</title>
+    <link rel="stylesheet" href="index.css">
   </head>
 
-  <body>
-    <h1>Welcome to the Base Index</h1>
-    <ul>
-      <li><a href="/dashboard">Dashboard</a></li>
-      <li><a href="/contestlog">Contest Log</a></li>
-      <li><a href="/scanlog">Scan Log</a></li>
-      <li><a href="/signin">Sign In</a></li>
-      <li><a href="/hamlog">Ham Log</a></li>
-      <li><a href="/vhflog">VHF Log</a></li>
-      <li><a href="/mwlog">MW Log</a></li>
-      <li><a href="/auth">Auth</a></li>
-      <li><a href="/signup">Sign Up</a></li>
-    </ul>
+  <body style="background-color: #0d6efd;">
+    <button onclick="window.location.href='/login/login.html'">Go to Login</button>
+    <div class="modal">
+      <div class="modal-content">
+        <div class="panel">
+          <img src="https://via.placeholder.com/500x750" alt="panel image">
+          <div class="panel-text">
+            <h2 style="font-size: 38px; font-family: 'Roboto', sans-serif; font-weight: bold;">RadioLogger</h2>
+            <p style="font-size: 24px; font-family: 'Open Sans', sans-serif;">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Sed non risus.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/app.js"></script>
+    <script src="/src/client/index.js"></script>
   </body>
 
 </html>

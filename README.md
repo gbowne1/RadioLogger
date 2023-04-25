@@ -71,4 +71,4 @@ Explain how others can contribute to your project, including any guidelines for 
 
 ## License
 
-Include information about the license for your project, such as the [GNU GPL](https://opensource.org/licenses)
+Include information about the license for your project, such as the [GPL-3.0-only](https://opensource.org/license/gpl-3-0/)

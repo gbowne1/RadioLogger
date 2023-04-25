@@ -36,4 +36,3 @@ module.exports = helmet({
     directives: directives,
   },
 })
-
