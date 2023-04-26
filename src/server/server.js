@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 const passport = require('passport');
 const MONGO_URL = require('./config/db.js');
 const session = require('./middlewares/session.middleware');

@@ -1,10 +1,12 @@
 const express = require('express');
 
-const dashboardRouter = require('./dashboard.js');
-const signinRouter = require('./signin.js');
+const registerRoutes = require('./register.routes');
+const loginRoutes = require('./login.routes');
+const dashboardRoutes = require('./dashboard.routes');
 /*---   add another routes files here   ---*/
 
 module.exports = (app) => {
-  app.use('/dashboard', dashboardRouter);
-  app.use('/signin', signinRouter);
+  app.use('/register', registerRoutes);
+  app.use('/login', loginRoutes);
+  app.use('/dashboard', dashboardRoutes);
 }

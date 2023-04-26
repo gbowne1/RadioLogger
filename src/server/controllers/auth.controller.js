@@ -2,9 +2,9 @@ const logger = require('../utils/logger');
 
 exports.show = (req, res, next) => {
   res.render('public/login/login');
-}
+};
 
-exports.auth = (req, res, next) => {
+exports.login = (req, res, next) => {
   try {
     const {user, password} = req.body;
     logger.error(`${user} ${password}`);
@@ -12,6 +12,15 @@ exports.auth = (req, res, next) => {
   } catch(err) {
     next(boom.badRequest("Wrong username or password"));
   }
-}
+};
 
+
+exports.register = (req, res, next) => {
+  try {
+    const {user, email, password} = req.body;
+
+  } catch(err) {
+    next(boom.badRequest('An error occurred while trying to register user data'));
+  }
+};
 
