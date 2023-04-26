@@ -56,8 +56,8 @@
               <i class="fas fa-user"></i>
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="./profile/profile.html">Profile</a></li>
+              <li><a class="dropdown-item" href="./settings/settings.html">Settings</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -76,99 +76,100 @@
         <!-- Add your menu items here -->
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row mt-5 gx-2 gy-2 row-cols-2 g-4" style="margin-left: 260px;">
+    <div class="container-fluid mt-5">
+      <div class="row">
         <!-- Add your card elements here -->
-        <div class="col">
+        <div class="col-3 d-flex mt-4 my-0">
           <div class="card">
             <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Ham Log</h5>
+              <h5 class="card-title">Contest Log</h5>
               <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
-              <p class="card-text">Log your ham radio contacts here</p>
-              <a href="/src/client/public/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
+              <p class="card-text">Do your contest logging here!</p>
+              <a href="/contestlog/contestlog.html" class="btn btn-primary card-link">Go to Contest Log</a>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col-3 d-flex mt-4 my-0">
           <div class="card">
             <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Ham Log</h5>
               <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
               <p class="card-text">Log your ham radio contacts here</p>
-              <a href="/src/client/public/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
+              <a href="/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col-3 d-flex mt-4 my-0">
           <div class="card">
             <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Ham Log</h5>
+              <h5 class="card-title">MW Logging</h5>
               <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
-              <p class="card-text">Log your ham radio contacts here</p>
-              <a href="/src/client/public/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
+              <p class="card-text">Log your Mediumwave DX here</p>
+              <a href="/mwlog/mwlog.html" class="btn btn-primary card-link">Go to MW Log</a>
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col-3 d-flex mt-4 my-0">
           <div class="card">
             <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Ham Log</h5>
+              <h5 class="card-title">Scanner Logging</h5>
               <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
-              <p class="card-text">Log your ham radio contacts here</p>
-              <a href="/src/client/public/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
+              <p class="card-text">Log your Scanner radio contacts here</p>
+              <a href="/scanlog/scanlog.html" class="btn btn-primary card-link">Go to SW Log</a>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Ham Log</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
-              <p class="card-text">Log your ham radio contacts here</p>
-              <a href="/src/client/public/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
+        <div class="row">
+          <div class="col-3 d-flex">
+            <div class="card">
+              <img class="card-img-top w-auto h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Shortwave Logging</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
+                <p class="card-text">Log your Shortwave radio contacts here</p>
+                <a href="/swllog/swllog.html" class="btn btn-primary card-link">Go to SW Log</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Ham Log</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
-              <p class="card-text">Log your ham radio contacts here</p>
-              <a href="/src/client/public/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
+          <div class="col">
+            <div class="card d-flex">
+              <img class="card-img-top w-auto h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">QSL Card Database</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
+                <p class="card-text">Search and store the QSL cards you have sent and received</p>
+                <a href="/hamlog/hamlog.html" class="btn btn-primary card-link">Go to QSL DB</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Ham Log</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
-              <p class="card-text">Log your ham radio contacts here</p>
-              <a href="/src/client/public/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
+          <div class="col">
+            <div class="card d-flex">
+              <img class="card-img-top w-auto h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Ham Log</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
+                <p class="card-text">Log your ham radio contacts here</p>
+                <a href="/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Ham Log</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
-              <p class="card-text">Log your ham radio contacts here</p>
-              <a href="/src/client/public/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
+          <div class="col">
+            <div class="card d-flex">
+              <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Ham Log</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
+                <p class="card-text">Log your ham radio contacts here</p>
+                <a href="/hamlog/hamlog.html" class="btn btn-primary card-link">Go to Ham Log</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </body>
 
 </html>

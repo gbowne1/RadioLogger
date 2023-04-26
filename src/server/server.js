@@ -57,6 +57,7 @@ app.get('/hamlog', (req, res) => { /* ... */ });
 app.get('/signup', (req, res) => { /* ... */ });
 app.get('/mwlog', (req, res) => { /* ... */ });
 app.get('/vhflog', (req, res) => { /* ... */ });
+app.get('/profile', (req, res) => { /* ... */ });
 app.get('/auth', cors(), (req, res) => { /* ... */ });
 app.get('/logout', function (req, res) {
   req.session.destroy();
@@ -75,7 +76,7 @@ app.get('/logout', function (req, res) {
   }
 });*/
 
-app.get('/auth', function(req, res) {
+app.get('/auth', function (req, res) {
   res.json({ accessToken: accessToken });
 });
 

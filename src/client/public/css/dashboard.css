@@ -14,6 +14,10 @@ body {
   -moz-text-size-adjust: 100%;
 }
 
+.col {
+  margin: 5px;
+}
+
 .navbar {
   height: 60px;
 }
@@ -28,6 +32,7 @@ body {
 }
 
 .container-fluid {
+  position: absolute;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
