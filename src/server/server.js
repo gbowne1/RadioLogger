@@ -82,7 +82,7 @@ app.get('/auth', function(req, res) {
 // User schema for demonstration purposes
 const users = [];
 
-app.post('/auth', cors(), async (req, res) => {
+/*app.post('/auth', cors(), async (req, res) => {
   const user = users.find(u => u.email === req.body.email);
   if (user == null) {
     return res.status(400).send('User not found');
@@ -98,7 +98,7 @@ app.post('/auth', cors(), async (req, res) => {
   } catch {
     res.status(500).send('Error during authentication');
   }
-});
+});*/
 
 app.post('/signup', async (req, res) => {
   try {

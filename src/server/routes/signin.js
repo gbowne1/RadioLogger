@@ -1,12 +1,10 @@
 const { Router } = require('express');
+const { show, auth } = require('../controllers/auth.controller');
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.render('public/login/login', { root: __dirname });
-});
+router.get('/', show);
 
-router.post('/', (req, res) => {
+router.post('/', auth);
 
-})
 module.exports = router;
