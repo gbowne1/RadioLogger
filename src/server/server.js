@@ -1,15 +1,13 @@
 const express = require('express');
-const session = require('./middlewares/session.middleware');
 const path = require('path');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
 const passport = require('passport');
-const MONGO_URL = require('./config/db.js');
+const db = require('./utils/database');
+const session = require('./middlewares/session.middleware');
 const morgan = require('./middlewares/morgan.middleware');
 const helmet = require('./middlewares/helmet.middleware');
 const routes = require('./routes/index.js');
@@ -32,12 +30,7 @@ app.use(morgan);
 app.use(helmet);
 
 // Database connection
-mongoose.connect(MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Failed to connect to MongoDB', err));
+db.connect();
 
 // Set view engine to HTML
 app.engine('html', require('ejs').renderFile);
@@ -83,7 +76,7 @@ app.get('/auth', function (req, res) {
 // User schema for demonstration purposes
 const users = [];
 
-app.post('/auth', cors(), async (req, res) => {
+/*app.post('/auth', cors(), async (req, res) => {
   const user = users.find(u => u.email === req.body.email);
   if (user == null) {
     return res.status(400).send('User not found');
@@ -99,7 +92,7 @@ app.post('/auth', cors(), async (req, res) => {
   } catch {
     res.status(500).send('Error during authentication');
   }
-});
+});*/
 
 app.post('/signup', async (req, res) => {
   try {
