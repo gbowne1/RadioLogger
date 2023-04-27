@@ -1,6 +1,9 @@
+const boom = require('boom');
+const authService = require('../services/auth.service');
 const logger = require('../utils/logger');
 
-exports.show = (req, res, next) => {
+
+exports.showLogin = (req, res, next) => {
   res.render('public/login/login');
 };
 
@@ -14,13 +17,18 @@ exports.login = (req, res, next) => {
   }
 };
 
+exports.showRegister = (req, res, next) => {
 
-exports.register = (req, res, next) => {
+}
+
+exports.register = async (req, res, next) => {
   try {
-    const {user, email, password} = req.body;
-
+    const data = ({name, email, password} = req.body);
+    const user = await authService.register(data);
+    res.status(201).json({ data: user, statusCode: 201 });
   } catch(err) {
-    next(boom.badRequest('An error occurred while trying to register user data'));
+    next(boom.badRequest(err));
   }
 };
+
 

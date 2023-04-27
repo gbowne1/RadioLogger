@@ -4,20 +4,21 @@ const logger = require('./logger');
 
 class Database {
   constructor() {
+    this.mongoUrl = MONGO_URL;
+  }
 
+  async connect() {
+    try {
+      await mongoose.connect(this.mongoUrl, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
+    } catch(err) {
+      logger.error(err);
+      throw new Error('Error to connect database');
+    }
   }
 }
 
-/*exports.connection = async () => {
-  try {
-    await mongoose.connect(MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    })
-  } catch(err) {
-    logger.error(err);
-    throw new Error('Error to connect database');
-  }
-}*/
+module.exports = new Database();
 

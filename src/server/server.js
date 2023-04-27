@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const { connection} = require('./utils/database');
+const db = require('./utils/database');
 const session = require('./middlewares/session.middleware');
 const morgan = require('./middlewares/morgan.middleware');
 const helmet = require('./middlewares/helmet.middleware');
@@ -30,7 +30,8 @@ app.use(morgan);
 app.use(helmet);
 
 // Database connection
-connection();
+db.connect();
+
 // Set view engine to HTML
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
