@@ -9,7 +9,7 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: none;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
 }
