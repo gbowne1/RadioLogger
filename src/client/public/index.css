@@ -41,7 +41,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: url(var(--panel-image-url));
+  background-image: url(var)((--panel-image-url));
   background-size: cover;
 }
 

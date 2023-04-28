@@ -36,7 +36,8 @@ This project is an amateur radio and shortwave radio logging application built u
 ## Requirements
 
 - Node.js version (e.g., v14.0.0 or higher)
-  We suggest using the latest LTS version.
+
+  Note: We suggest using the latest LTS version, shown on NodeJS's current download page.
 
 - MongoDB version (e.g., v4.0.0 or higher)
 
@@ -67,8 +68,9 @@ We use Mocha and Chai to do our testing
 
 ## Contributing
 
-Explain how others can contribute to your project, including any guidelines for submitting pull requests or reporting issues.
+We have a list of TODO's in [here](TODO.md).  If you would like to work on any of these, let us know which one you would like to work on.
+Please read the [Contributing](CONTRIBUTING.md) document. If you think it will take you more than 3 days/72 hours to complete a task let us know that as well so we can keep issues from going stale. Please submit all PR's with a screenshot and assign the PR to yourself.
 
 ## License
 
-Include information about the license for your project, such as the [GPL-3.0-only](https://opensource.org/license/gpl-3-0/)
+Currently we are using the [GPL-3.0-only](https://opensource.org/license/gpl-3-0/) license, but may adopt another in the future such as MIT.

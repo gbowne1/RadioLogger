@@ -44,6 +44,7 @@ app.use(express.static(path.join(__dirname, '../client/public')));
 routes(app);
 
 app.get('/contestlog', (req, res) => { /* ... */ });
+
 app.get('/logout', function (req, res) {
   req.session.destroy();
   res.send("logout success!");

@@ -4,7 +4,7 @@
 
 - [ ] Create Login tests
 - [ ] Complete /auth
-- [ ] Fix the issue with the CSS not loading (CORS issue??) on /login
+- [x] Fix the issue with the CSS not loading (CORS issue??) on /login
 - [ ] Complete the reset password functionality
 
 ## Signup / Register
@@ -30,7 +30,7 @@ Need some more models, we only have User model
 ## Server
 
 - [ ] Add missing routes
-- [ ] Wire up winston and morgan server and http logging to /server/logs/
+- [x] Wire up winston and morgan server and http logging to /server/logs/
 
 ## Components
 
