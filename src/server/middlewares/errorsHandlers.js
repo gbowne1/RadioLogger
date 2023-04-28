@@ -2,7 +2,7 @@ const boom = require('boom');
 
 const env = process.env.NODE_ENV || 'development';
 
-const withErrorStack = (message, err, stack) =≥ {
+const withErrorStack = (message, err, stack) => {
   if(env === 'development') {
     return {...err, message, stack};
   }
