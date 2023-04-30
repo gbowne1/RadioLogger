@@ -14,7 +14,7 @@ const helmet = require('./middlewares/helmet.middleware');
 const routes = require('./routes/index.js');
 const app = express();
 const logger = require('./utils/logger');
-const User = require('./user');
+const User = require('./models/user');
 const bcryptSalt = 10; // Define the number of salt rounds
 
 app.all('/*', function (req, res, next) {
