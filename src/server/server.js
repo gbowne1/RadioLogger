@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 const db = require('./utils/database');
 const session = require('./middlewares/session.middleware');
 const morgan = require('./middlewares/morgan.middleware');
@@ -13,6 +14,7 @@ const helmet = require('./middlewares/helmet.middleware');
 const routes = require('./routes/index.js');
 const app = express();
 const logger = require('./utils/logger');
+const User = require('./user');
 
 app.all('/*', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

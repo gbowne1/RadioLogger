@@ -36,11 +36,11 @@ Need some more models, we only have User model
 
 - [ ] Move to using layout based web-components like navbar.html which would contain anything between `<nav>` and `</nav>`
 - [ ] Make the Navbar/TopNav/TopBar an individual component
-- [ ] Add icons to the User Icon
+- [ ] Add icons to the User Icon dropdown menu, including fa-gear and fa-user
 - [ ] Add missing `<i class="fa-solid fa-bars"></i>` to the left of [LOGO]
 - [ ] Wire up the Theme toggle switch to use /src/client/public/js/theme.js
 - [ ] Create a Off-Canvas Drawer that slides out from the left of the view on desktop when the user clicks on the fa-bars icon.
-      This will be a SideNav
+      This will be a SideNav.
 
 ## Documentation
 
@@ -67,3 +67,7 @@ Need some more models, we only have User model
 - [ ] Does not provide a valid apple-touch-icon
 - [ ] Does not have a maskable icon
 - [ ] Eliminate render blocking JavaScript resources
+
+## Testing
+
+- [ ] Use Mocha and Chai to test the login and all of the user stuff like register, reset password, etc. 
