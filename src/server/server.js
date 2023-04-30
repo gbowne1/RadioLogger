@@ -15,6 +15,7 @@ const routes = require('./routes/index.js');
 const app = express();
 const logger = require('./utils/logger');
 const User = require('./user');
+const bcryptSalt = 10; // Define the number of salt rounds
 
 app.all('/*', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
