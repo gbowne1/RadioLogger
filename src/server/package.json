@@ -6,7 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "devStart": "nodemon index.js"
+    "devStart": "nodemon index.js",
+    "postinstall": "link-module-alias"
+  },
+  "_moduleAliases": {
+    "@config": "./config",
+    "@controllers": "./controllers",
+    "@middlewares": "./middlewares",
+    "@models": "./models",
+    "@routes": "./routes",
+    "@services": "./services",
+    "@utils": "./utils"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +38,7 @@
     "helmet": "^6.1.5",
     "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
+    "module-alias": "^2.2.2",
     "mongoose": "^7.0.3",
     "morgan": "^1.10.0",
     "passport": "^0.6.0",

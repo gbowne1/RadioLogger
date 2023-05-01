@@ -1,30 +1,37 @@
 const winston = require('winston');
-const levels = require('../config/levelLog');
-const colors = require('../config/colorLevel');
+const levels = require('@config/levelLog');
+const colors = require('@config/colorLevel');
 
 const level = () => {
   const env = process.env.NODE_ENV || 'development';
   const isDevelopment = env === 'development';
-
   return isDevelopment ? 'debug' : 'warn';
 }
-
 winston.addColors(colors);
 
 const format = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
   winston.format.colorize({ all: true }),
-  winston.format.printf((info) => `${info.timestamp} ${info.level}: ${info.message}`
+  winston.format.printf((info) => `[${info.timestamp}]:[${info.level}] ${info.message}`
   ),
 );
 
 const transports = [
-  new winston.transports.Console(),
+  new winston.transports.Console(
+    {
+    level: "debug",
+    handleExceptions: true,
+    format: winston.format.combine(
+      winston.format.colorize(),
+      //winston.format.simple()
+    ),
+  }
+  ),
   new winston.transports.File({
     filename: 'logs/error.log',
     level: 'error'
   }),
-  new winston.transports.File({ filename: 'logs/all.log' })
+  new winston.transports.File({ filename: 'logs/all.log'})
 ];
 
 module.exports = winston.createLogger({
@@ -32,4 +39,5 @@ module.exports = winston.createLogger({
   levels,
   format,
   transports,
+  exitOnError: false,
 });

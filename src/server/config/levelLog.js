@@ -5,4 +5,5 @@ module.exports = {
   http: 3,
   verbose: 4,
   debug: 5,
+  silly: 6
 }

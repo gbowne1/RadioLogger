@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -16,13 +17,9 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-/*userSchema.virtual('id').get(function () {
-  return this._id.toHexString();
-});
-
-userSchema.set('toJSON', {
-  virtuals: true,
-});*/
+userSchema.methods.comparePassword = function(passwd) {
+  return bcrypt.compareSync(passwd, this.password);
+}
 
 const User = mongoose.model('User', userSchema);
 
