@@ -1,9 +1,8 @@
 const { Router } = require('express');
-const { show, login } = require('../controllers/auth.controller');
+const { login, resetPassword } = require('@controllers/api/v1/auth.controller');
 
 const router = Router();
 
-router.get('/', show);
 
 router.post('/', login);
 

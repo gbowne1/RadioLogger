@@ -1,9 +1,9 @@
 const { Router } = require('express');
+const { show } = require('@controllers/web/auth.controller');
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.render('dashboard/dashboard');
-});
+
+router.get('/', show);
 
 module.exports = router;

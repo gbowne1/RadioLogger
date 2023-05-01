@@ -1,8 +1,8 @@
 const morgan = require('morgan');
-const logger = require('../utils/logger');
+const logger = require('@utils/logger');
 
 const stream = {
-  write: (message) => logger.http(message),
+  write: (message) => logger.info(message),
 };
 
 const skip = () => {

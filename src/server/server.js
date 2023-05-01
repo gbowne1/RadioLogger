@@ -1,21 +1,22 @@
+require('module-alias/register');
+const apiRoute = require('@routes/api');
+const webRoute = require('@routes/web');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const axios = require('axios');
+/*const axios = require('axios');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');*/
 const db = require('./utils/database');
-const session = require('./middlewares/session.middleware');
-const morgan = require('./middlewares/morgan.middleware');
-const helmet = require('./middlewares/helmet.middleware');
-const routes = require('./routes/index.js');
+const session = require('@middlewares/session.middleware');
+const morgan = require('@middlewares/morgan.middleware');
+const helmet = require('@middlewares/helmet.middleware');
 const app = express();
-const logger = require('./utils/logger');
-const User = require('./models/user');
-const bcryptSalt = 10; // Define the number of salt rounds
+const logger = require('@utils/logger');
+const { wrapErrors, errorHandler} = require('@middlewares/errorsHandlers.middleware');
 
 app.all('/*', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -32,6 +33,7 @@ app.use(session);
 app.use(morgan);
 app.use(helmet);
 
+
 // Database connection
 db.connect();
 
@@ -44,7 +46,8 @@ app.set('views', path.join(__dirname, '../client/public'));
 app.use(express.static(path.join(__dirname, '../client/public')));
 
 // Routes
-routes(app);
+app.use('/api', apiRoute);
+app.use('/', webRoute);
 
 app.get('/contestlog', (req, res) => { /* ... */ });
 
@@ -53,35 +56,13 @@ app.get('/logout', function (req, res) {
   res.send("logout success!");
 });
 
-app.post('/reset-password', async (req, res) => {
-  const email = req.body.email;
-  const oldPassword = req.body.oldPassword;
-  const newPassword = req.body.newPassword;
-
-  const user = await User.findOne({ email });
-
-  if (!user) {
-    res.status(404).json({ message: 'User not found' });
-    return;
-  }
-
-  const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
-
-  if (!isPasswordValid) {
-    res.status(400).json({ message: 'Incorrect old password' });
-    return;
-  }
-
-  const hashedNewPassword = await bcrypt.hash(newPassword, Number(bcryptSalt));
-  await User.updateOne({ _id: user._id }, { $set: { password: hashedNewPassword } });
-
-  res.status(200).json({ message: 'Password reset successful' });
-});
-
 // 404 Not Found
 app.use('*', (req, res) => {
   res.status(404).send('404 Not Found');
 });
+
+app.use(wrapErrors);
+app.use(errorHandler);
 
 // Listen on port 3000 or the next available port
 const server = app.listen(3000, () => {

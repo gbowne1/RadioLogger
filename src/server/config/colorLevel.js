@@ -2,6 +2,6 @@ module.exports = {
   error: 'red',
   warn: 'yellow',
   info: 'green',
-  http: 'magenta',
+  http: 'blue',
   debug: 'white',
 }
