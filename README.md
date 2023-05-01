@@ -35,6 +35,8 @@ This project is an amateur radio and shortwave radio logging application built u
 
 ## Requirements
 
+There are some requirements and prerequisites to developing this project.
+
 - Node.js version (e.g., v14.0.0 or higher)
 
   Note: We suggest using the latest LTS version, shown on NodeJS's current download page.
@@ -43,12 +45,19 @@ This project is an amateur radio and shortwave radio logging application built u
 
 ## Installation
 
-1. Clone this repository:
-2. Change to the project directory:
-3. Install client dependencies:
+Assuming you already have MongoDB and NodeJS installed, here are the installation requirements
+
+1. Clone this repository
+2. Change to the project directory
+3. Install client dependencies
 4. Install server dependencies
-5. Create a `.env` file in the project root with the following contents:
-6. Start the application:
+5. Create a `.env` file in the project root with the following contents
+6. Start the mongod server with `mongod`
+7. Start the application
+   a. Change to /src/server
+   b. Start the server with npm start
+   c. Wait till node & nodemon start and connect to mongoose / MongoDB
+   d. Go to your browser and navigate to localhost:3000
 
 ## Usage
 
