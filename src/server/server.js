@@ -49,8 +49,6 @@ app.use(express.static(path.join(__dirname, '../client/public')));
 app.use('/api', apiRoute);
 app.use('/', webRoute);
 
-app.get('/contestlog', (req, res) => { /* ... */ });
-
 app.get('/logout', function (req, res) {
   req.session.destroy();
   res.send("logout success!");
