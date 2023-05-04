@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
+      integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+  <body>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Frequency Units
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">kHz</a></li>
+        <li><a class="dropdown-item" href="#">MHz</a></li>
+        <li><a class="dropdown-item" href="#">GHz</a></li>
+      </ul>
+    </div>
+    <form>
+      <div class="mb-3">
+        <label for="frequency" class="form-label">Frequency</label>
+        <input type="text" class="form-control" id="frequency">
+      </div>
+      <div class="mb-3">
+        <label for="channel" class="form-label">Channel</label>
+        <input type="text" class="form-control" id="channel">
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="alert">
+        <label class="form-check-label" for="alert">Enable Alert</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="themeDropdown" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Theme
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="themeDropdown">
+        <li><a class="dropdown-item" href="#">Light</a></li>
+        <li><a class="dropdown-item" href="#">Dark</a></li>
+        <li><a class="dropdown-item" href="#">High Contrast</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Language
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+        <li><a class="dropdown-item" href="#">English</a></li>
+        <li><a class="dropdown-item" href="#">Spanish</a></li>
+        <li><a class="dropdown-item" href="#">French</a></li>
+      </ul>
+    </div>
+
+    <form>
+      <div class="mb-3">
+        <label for="emailNotifications" class="form-label">Email Notifications</label>
+        <select class="form-select" id="emailNotifications">
+          <option selected>Enabled</option>
+          <option>Disabled</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="pushNotifications" class="form-label">Push Notifications</label>
+        <select class="form-select" id="pushNotifications">
+          <option selected>Enabled</option>
+          <option>Disabled</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password">
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+    <form>
+      <div class="mb-3">
+        <label for="logFormat" class="form-label">Log Format</label>
+        <select class="form-select" id="logFormat">
+          <option selected>CSV</option>
+          <option>JSON</option>
+          <option>XML</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="logFileLocation" class="form-label">Log File Location</label>
+        <input type="text" class="form-control" id="logFileLocation">
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="accessibilityDropdown"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Accessibility
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="accessibilityDropdown">
+        <li><a class="dropdown-item" href="#">Font Size</a></li>
+        <li><a class="dropdown-item" href="#">Contrast</a></li>
+      </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+      integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+      integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
+      integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+
+</html>
