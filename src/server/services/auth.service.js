@@ -1,41 +1,36 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('@models/user');
-const {API_SECRET} = require('@config/secrets');
+const { API_SECRET } = require('@config/secrets');
 
-exports.login = async (email, password ) => {
+exports.login = async (email, password) => {
   const user = await User.findOne({
     email: email
   });
 
-  if(!user || !user.comparePassword(password)) {
+  if (!user || !user.comparePassword(password)) {
     throw new Error('Authentication failed. Invalid user or password');
   }
 
-  const accessToken = jwt.sign({
-    email: user.email
-  }, API_SECRET,{
-    expiresIn: 86400
-  });
-  return ({accessToken});
+  return ({ user })
 }
 
-exports.find = async(email) => {
+exports.find = async (email) => {
   const user = await User.findOne({
     email: email
   });
 
-  if(!user)
+  if (!user)
     throw new Error('Email not exists');
 
   return user;
 }
 
-exports.resetPassword = async(email, oldPassword, newPassword) => {
+exports.resetPassword = async (email, oldPassword, newPassword) => {
   const user = await User.findOne({
     email: email
   });
-  if(!user || !user.comparePassword(oldPassword))
+  if (!user || !user.comparePassword(oldPassword))
     throw new Error('Invalid user or password');
 
   user.password = bcrypt.hashSync(newPassword, 10);
