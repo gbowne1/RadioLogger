@@ -1,4 +1,4 @@
-document.querySelector('form[action="signUp.js"]').addEventListener('submit', function (e) {
+document.querySelector('form[action="signUp.js"]').addEventListener('submit', async function (e) {
   e.preventDefault();
 
   const form = e.target;
@@ -12,7 +12,20 @@ document.querySelector('form[action="signUp.js"]').addEventListener('submit', fu
     return;
   }
 
-  // Perform your sign-up logic here (e.g., AJAX call to the server)
+  const response = await fetch('/api/v1/signup', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username, email, password })
+  });
 
-  console.log('User registered:', { username, email, password });
+  if (response.ok) {
+    console.log('User registered:', { username, email, password });
+    // Redirect the user to a success page
+    window.location.href = '/success'; // This could be replaced with /dashboard
+  } else {
+    const data = await response.json();
+    alert(data.message);
+  }
 });
