@@ -12,7 +12,7 @@ document.querySelector('form[action="signUp.js"]').addEventListener('submit', as
     return;
   }
 
-  const response = await fetch('/api/v1/signup', {
+  const response = await fetch('/api/v1/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -20,10 +20,9 @@ document.querySelector('form[action="signUp.js"]').addEventListener('submit', as
     body: JSON.stringify({ username, email, password })
   });
 
-  if (response.ok) {
-    console.log('User registered:', { username, email, password });
+  if (response.status === 201) {
     // Redirect the user to a success page
-    window.location.href = '/success'; // This could be replaced with /dashboard
+    window.location.href = '/dashboard'; // This could be replaced with /dashboard
   } else {
     const data = await response.json();
     alert(data.message);
