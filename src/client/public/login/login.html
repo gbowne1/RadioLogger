@@ -45,11 +45,11 @@
 
         <div class="login hidden">
           <h2>Sign In</h2>
-          <form method="post" action="signIn.js">
+          <form id="login-form" method="post" action="signIn.js">
             <input class="field" name="email" required type="email" placeholder="* myusername@domain.com" />
             <input class="field" name="pass" required type="password" placeholder="* Password" />
             <label>
-              <input type="checkbox" name="terms">
+              <input type="checkbox" name="terms" id="remember-checkbox">
               <em>Keep me logged in</em>
             </label>
             <button type="submit">Login</button>
@@ -86,6 +86,7 @@
     <script src="../js/resetPassword.js"></script>
     <script src="../js/signIn.js"></script>
     <script src="../js/tabs.js"></script>
+    <script src="../app.js"></script>
   </body>
 
 </html>

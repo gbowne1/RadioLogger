@@ -21,143 +21,146 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg fixed-top" style="height: 60px; background-color: blue; width: 1884px;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDrawer"
-          aria-controls="offcanvasDrawer">
-          <i class="fas fa-bars"></i>
+          aria-controls="offcanvasDrawer" aria-label="sidebartoggle">
+          <span class="navbar-toggler-icon"></span>
         </button>
-
         <a class="navbar-brand" href="/">
-          <img src="logo-placeholder.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-          RadioLogger
+          <img src="logo-placeholder.png" alt="Logo" width="30" height="24">
         </a>
-
-        <div class="d-flex ms-auto">
-          <button class="btn" id="themeToggle">
-            <i class="fas fa-adjust"></i>
+        <div class="navbar-nav">
+          <button id="themeToggle" class="btn" aria-label="theme">
+            <i class="fas fa-moon"></i>
           </button>
-
           <button class="btn">
-            <i class="fas fa-bell"></i>
+            <i class="fas fa-bell" aria-label="notificaionbell"></i>
           </button>
-
           <div class="dropdown">
-            <button class="btn" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+              aria-label="usermenu">
               <i class="fas fa-user"></i>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-              <li><a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Settings</a></li>
-              <li><a class="dropdown-item" id="loginLogout" href="#"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="./profile/profile.html">Profile</a></li>
+              <li><a class="dropdown-item" href="./settings/settings.html">Settings</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Logout</a></li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
-    <div class="" tabindex="-1" id="offcanvasDrawer" aria-labelledby="offcanvasDrawerLabel">
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDrawer">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDrawerLabel">Offcanvas Drawer</h5>
+        <h5 class="offcanvas-title">Menu</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
+      <div class="offcanvas-body">
+        <!-- Add your menu items here -->
+      </div>
+    </div>
 
-      <h1>Shortwave Radio Logging</h1>
-      <form>
-        <label for="frequency">Frequency:</label>
-        <input type="number" id="frequency" name="frequency" step="0.001" min="0" required>
-        <select id="unit" name="unit">
-          <option value="kHz">kHz</option>
-          <option value="MHz">MHz</option>
-        </select><br><br>
+    <h1>Shortwave Radio Logging</h1>
+    <form>
+      <label for="frequency">Frequency:</label>
+      <input type="number" id="frequency" name="frequency" step="0.001" min="0" required>
+      <select id="unit" name="unit">
+        <option value="kHz">kHz</option>
+        <option value="MHz">MHz</option>
+      </select><br><br>
 
-        <label for="stationId">Station Identification:</label>
-        <input type="text" id="stationId" name="stationId"><br><br>
+      <label for="stationId">Station Identification:</label>
+      <input type="text" id="stationId" name="stationId"><br><br>
 
-        <label for="transmitterLocation">Transmitter Location (VIA):</label>
-        <input type="text" id="transmitterLocation" name="transmitterLocation"><br><br>
+      <label for="transmitterLocation">Transmitter Location (VIA):</label>
+      <input type="text" id="transmitterLocation" name="transmitterLocation"><br><br>
 
-        <label for="localTime">Local Time:</label>
-        <input type="time" id="localTime" name="localTime"><br><br>
+      <label for="localTime">Local Time:</label>
+      <input type="time" id="localTime" name="localTime"><br><br>
 
-        <label for="gmtTime">GMT/UTC Time:</label>
-        <input type="time" id="gmtTime" name="gmtTime"><br><br>
+      <label for="gmtTime">GMT/UTC Time:</label>
+      <input type="time" id="gmtTime" name="gmtTime"><br><br>
 
-        <label for="endTime">End Time of Transmission:</label>
-        <input type="time" id="endTime" name="endTime"><br><br>
+      <label for="endTime">End Time of Transmission:</label>
+      <input type="time" id="endTime" name="endTime"><br><br>
 
-        <label for="date">Date of Reception:</label>
-        <input type="date" id="date" name="date"><br><br>
+      <label for="date">Date of Reception:</label>
+      <input type="date" id="date" name="date"><br><br>
 
-        <label for="qslSent">QSL Sent:</label>
-        <input type="checkbox" id="qslSent" name="qslSent"><br><br>
+      <label for="qslSent">QSL Sent:</label>
+      <input type="checkbox" id="qslSent" name="qslSent"><br><br>
 
-        <label for="qslReceived">QSL Received:</label>
-        <input type="checkbox" id="qslReceived" name="qslReceived"><br><br>
+      <label for="qslReceived">QSL Received:</label>
+      <input type="checkbox" id="qslReceived" name="qslReceived"><br><br>
 
-        <label for="jamming">Indication of Jamming:</label>
-        <input type="checkbox" id="jamming" name="jamming"><br><br>
+      <label for="jamming">Indication of Jamming:</label>
+      <input type="checkbox" id="jamming" name="jamming"><br><br>
 
-        <label for="description">Brief Description:</label>
-        <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+      <label for="description">Brief Description:</label>
+      <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
 
-        <label for="audioFile">Upload Audio File:</label>
-        <input type="file" id="audioFile" name="audioFile" accept=".mp3,.wav,.mp4"><br><br>
+      <label for="audioFile">Upload Audio File:</label>
+      <input type="file" id="audioFile" name="audioFile" accept=".mp3,.wav,.mp4"><br><br>
 
-        <label for="band">Band:</label>
-        <select id="band" name="band">
-          <!-- Add all band options here -->
-          <option value="120m">120m</option>
-          <option value="90m">90m</option>
-          <!-- ... -->
-        </select><br><br>
+      <label for="band">Band:</label>
+      <select id="band" name="band">
+        <!-- Add all band options here -->
+        <option value="120m">120m</option>
+        <option value="90m">90m</option>
+        <!-- ... -->
+      </select><br><br>
 
-        <label for="mode">Transmitter/Receiver Mode:</label>
-        <select id="mode" name="mode">
-          <!-- Add all mode options here -->
-          <option value="AM">AM</option>
-          <option value="FM">FM</option>
-          <!-- ... -->
-        </select><br><br>
+      <label for="mode">Transmitter/Receiver Mode:</label>
+      <select id="mode" name="mode">
+        <!-- Add all mode options here -->
+        <option value="AM">AM</option>
+        <option value="FM">FM</option>
+        <!-- ... -->
+      </select><br><br>
 
-        <label for="stationContact">Station Contact Information:</label>
-        <textarea id="stationContact" name="stationContact" rows="4" cols="50"></textarea><br><br>
+      <label for="stationContact">Station Contact Information:</label>
+      <textarea id="stationContact" name="stationContact" rows="4" cols="50"></textarea><br><br>
 
-        <label for="notes">Notes/Comments:</label>
-        <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br><br>
+      <label for="notes">Notes/Comments:</label>
+      <textarea id="notes" name="notes" rows="4" cols="50"></textarea><br><br>
 
-        <label for="filterSettings">Receiver Filter Settings:</label>
-        <input type="text" id="filterSettings" name="filterSettings"><br><br>
+      <label for="filterSettings">Receiver Filter Settings:</label>
+      <input type="text" id="filterSettings" name="filterSettings"><br><br>
 
-        <label for="transmitterPower">Transmitter Power:</label>
-        <input type="text" id="transmitterPower" name="transmitterPower"><br><br>
+      <label for="transmitterPower">Transmitter Power:</label>
+      <input type="text" id="transmitterPower" name="transmitterPower"><br><br>
 
-        <label for="targetRegion">Target Region:</label>
-        <select id="targetRegion" name="targetRegion">
-          <!-- Add all region options here -->
-          <option value="NorthAsia">N. Asia</option>
-          <!-- ... -->
-        </select><br><br>
+      <label for="targetRegion">Target Region:</label>
+      <select id="targetRegion" name="targetRegion">
+        <!-- Add all region options here -->
+        <option value="NorthAsia">N. Asia</option>
+        <!-- ... -->
+      </select><br><br>
 
-        <label for="alternativeFrequencies">Alternative Frequencies:</label>
-        <input type="text" id="alternativeFrequencies" name="alternativeFrequencies"><br><br>
+      <label for="alternativeFrequencies">Alternative Frequencies:</label>
+      <input type="text" id="alternativeFrequencies" name="alternativeFrequencies"><br><br>
 
-        <label for="receptionQuality">Reception Quality:</label>
-        <input type="text" id="receptionQuality" name="receptionQuality"><br><br>
+      <label for="receptionQuality">Reception Quality:</label>
+      <input type="text" id="receptionQuality" name="receptionQuality"><br><br>
 
-        <input type="submit" value="Submit">
-      </form>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
-        integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
-        integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
-        integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <input type="submit" value="Submit">
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+      integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+      integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
+      integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 
 </html>
