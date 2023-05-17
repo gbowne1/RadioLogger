@@ -5,3 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = '/login/login.html';
   });
 });
+
+const loginForm = document.getElementById('login-form');
+const rememberCheckbox = document.getElementById('remember-checkbox');
+
+loginForm.addEventListener('submit', (event) => {
+  if (!rememberCheckbox.checked) {
+    event.preventDefault();
+    alert('Please check the "Keep me logged in" box to proceed.');
+  }
+});

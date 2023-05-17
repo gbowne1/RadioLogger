@@ -1,23 +1,57 @@
-document.querySelector('form[action="signUp.js"]').addEventListener('submit', async function (e) {
-  e.preventDefault();
+const form = document.getElementById('signup-form');
 
-  const form = e.target;
-  const username = form.uname.value;
-  const email = form.email.value;
-  const password = form.pass.value;
-  const passwordConfirm = form.pass_confirm.value;
+function validateForm() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const reenterPassword = document.getElementById('reenter-password').value;
 
-  if (password !== passwordConfirm) {
+  // perform validation checks
+  if (name === '' || email === '' || password === '' || reenterPassword === '') {
+    alert('Please fill in all fields.');
+    return false;
+  }
+
+  if (password !== reenterPassword) {
+    alert('Passwords do not match.');
+    return false;
+  }
+
+  return true;
+}
+
+form.addEventListener('submit', async function (event) {
+  event.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const reenterPassword = document.getElementById('reenter-password').value;
+
+  // perform validation checks
+  if (name === '' || email === '' || password === '' || reenterPassword === '') {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  if (password !== reenterPassword) {
     alert('Passwords do not match.');
     return;
   }
+
+  // create an object with the form data
+  const data = {
+    name: name,
+    email: email,
+    password: password
+  };
 
   const response = await fetch('/api/v1/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ username, email, password })
+    body: JSON.stringify(data)
   });
 
   if (response.status === 201) {
