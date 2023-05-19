@@ -4,9 +4,11 @@
   "description": "A Radio Logging application build with NodeJS and ExpressJS",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "devStart": "nodemon index.js",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix .",
     "postinstall": "link-module-alias"
   },
   "_moduleAliases": {
@@ -51,6 +53,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
+    "link-module-alias": "^1.2.0",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.8"
