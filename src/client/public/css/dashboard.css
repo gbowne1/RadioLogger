@@ -1,7 +1,23 @@
 :root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
   --card-margin: 10px;
   --card-width: 320px;
   --card-height: 420px;
+  --body-bg-light: #fff;
+  --body-color-light: #000;
+  --primary-color-light: #007bff;
+  --body-bg-dark: #333;
+  --body-color-dark: #fff;
+  --primary-color-dark: #6c757d;
+  --body-bg: var(--body-bg-light);
+  --body-color: var(--body-color-light);
+  --primary-color: var(--primary-color-light);
+}
+
+:root.dark {
+  --primary-color: #6c757d;
+  --secondary-color: #007bff;
 }
 
 body {
@@ -12,6 +28,12 @@ body {
   -moz-osx-font-smoothing: none;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
+}
+
+body.dark-mode {
+  --body-bg: #333;
+  --body-color: #fff;
+  --primary-color: #6c757d;
 }
 
 .col {
@@ -29,6 +51,11 @@ body {
 
 .offcanvas {
   width: 250px;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
 }
 
 .container-fluid {
@@ -56,4 +83,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px;
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
 }

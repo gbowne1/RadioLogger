@@ -23,10 +23,10 @@ function validateForm() {
 form.addEventListener('submit', async function (event) {
   event.preventDefault();
 
-  const name = document.getElementById('name').value;
+  const name = document.getElementById('uname').value;
   const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  const reenterPassword = document.getElementById('reenter-password').value;
+  const password = document.getElementById('p1').value;
+  const reenterPassword = document.getElementById('p2').value;
 
   // perform validation checks
   if (name === '' || email === '' || password === '' || reenterPassword === '') {
