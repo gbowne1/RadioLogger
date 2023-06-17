@@ -1,11 +1,11 @@
 const { Router } = require('express');
 const { login, resetPassword } = require('@controllers/api/v1/password.controller');
-const isAuth = require('@middlewares/isAuth.middleware');
+const authBearerToken = require('@middlewares/authBearerToken.middleware');
 
 const router = Router();
 
 
-router.post('/reset', isAuth, resetPassword);
+router.post('/reset', authBearerToken, resetPassword);
 
 module.exports = router;
 

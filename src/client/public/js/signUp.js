@@ -41,7 +41,7 @@ form.addEventListener('submit', async function (event) {
 
   // create an object with the form data
   const data = {
-    name: name,
+    username: name,
     email: email,
     password: password
   };
