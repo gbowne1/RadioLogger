@@ -9,6 +9,7 @@ exports.login = async (req, res, next) => {
     const { email, password } = req.body;
     const isUser = await authService.login(email, password);
     if (isUser) {
+      req.session.auth = true
       const accessToken = jwt.sign({
         email: isUser.email
       }, API_SECRET, {
