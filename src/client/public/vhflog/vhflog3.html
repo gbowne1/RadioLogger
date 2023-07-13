@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Ham Radio Contact Form</title>
+    <!-- Link to Bootstrap stylesheet from Cloudflare CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to Font Awesome stylesheet from Cloudflare CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Link to Popper.js and jQuery from Cloudflare CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Link to Bootstrap JavaScript from Cloudflare CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
+    <!-- Specify Roboto and Open Sans as fallback fonts -->
+    <style>
+      body {
+        font-family: "Roboto", "Open Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container mt-5" style="margin-top: 70px;">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <form style="margin-left: 15px; margin-right: 15px;">
+            <div class="mb-3">
+              <label for="date-pick" class="form-label">Date:</label>
+              <input type="date" class="form-control" id="date-pick">
+            </div>
+            <div class="mb-3">
+              <label for="time-pick" class="form-label">Time:</label>
+              <input type="time" class="form-control" id="time-pick">
+            </div>
+            <div class="mb-3">
+              <label for="call-sign" class="form-label">Call Sign:</label>
+              <input type="text" class="form-control" id="call-sign" maxlength="10">
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="location" class="form-label">Location:</label>
+                <input type="text" class="form-control" id="location">
+              </div>
+              <div class="col-md-6">
+                <label for="frequency" class="form-label">Frequency:</label>
+                <input type="text" class="form-control" id="frequency">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="mode" class="form-label">Mode:</label>
+                <select class="form-select" id="mode">
+                  <option selected>Select Mode</option>
+                  <option value="SSB">SSB</option>
+                  <option value="CW">CW</option>
+                  <option value="AM">AM</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="power" class="form-label">Power:</label>
+                <select class="form-select" id="power">
+                  <option selected>Select Power</option>
+                  <option value="QRP">QRP</option>
+                  <option value="LOW">LOW</option>
+                  <option value="HIGH">HIGH</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

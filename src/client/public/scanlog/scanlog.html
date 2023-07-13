@@ -2,96 +2,122 @@
 <html lang="en">
 
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Scanner Radio Logging</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
       integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="manifest" href="/manifest.json">
-    <title>Shortwave Radio Logging</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/scanlog.css" />
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg fixed-top" style="height: 60px; background-color: blue; width: 1884px;">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDrawer"
-          aria-controls="offcanvasDrawer">
-          <i class="fas fa-bars"></i>
-        </button>
+      <!-- Navbar content -->
+    </nav>
 
-        <a class="navbar-brand" href="/">
-          <img src="logo-placeholder.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-          RadioLogger
-        </a>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDrawer" aria-labelledby="offcanvasDrawerLabel">
+      <!-- Offcanvas content -->
+    </div>
 
-        <div class="d-flex ms-auto">
-          <button class="btn" id="themeToggle">
-            <i class="fas fa-adjust"></i>
-          </button>
-
-          <button class="btn">
-            <i class="fas fa-bell"></i>
-          </button>
-
-          <div class="dropdown">
-            <button class="btn" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fas fa-user"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-              <li><a class="dropdown-item" href="/profile/profile.html"><i class="fas fa-user"></i> Profile</a></li>
-              <li><a class="dropdown-item" href="/settings/settings.html"><i class="fas fa-cog"></i> Settings</a></li>
-              <li><a class="dropdown-item" id="login" href="/login/login.html"><i class="fas fa-sign-in-alt"></i>
-                  Login</a></li>
-            </ul>
+    <div class="container mt-5">
+      <h1>Scanner Radio Logging Form</h1>
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="frequency" class="form-label">Frequency (MHz)</label>
+              <input type="text" class="form-control" id="frequency" name="frequency" required />
+            </div>
+            <div class="mb-3">
+              <label for="callSign" class="form-label">Call Sign</label>
+              <input type="text" class="form-control" id="callSign" name="callSign" required />
+            </div>
+            <div class="mb-3">
+              <label for="tone" class="form-label">Tone</label>
+              <input type="text" class="form-control" id="tone" name="tone" required />
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="mode" class="form-label">Mode</label>
+              <select class="form-select" id="mode" name="mode" required>
+                <option value="fm">FM</option>
+                <option value="fm-narrow">FM Narrow</option>
+                <option value="p25">P25</option>
+                <option value="dmr">DMR</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="toneType" class="form-label">Tone Type</label>
+              <select class="form-select" id="toneType" name="toneType" required>
+                <option value="csq">CSQ</option>
+                <option value="pl">PL</option>
+                <option value="dpl">DPL</option>
+                <option value="ran">RAN</option>
+                <option value="nac">NAC</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" class="form-control" id="location" name="location" required />
+            </div>
+            <div class="mb-3">
+              <label for="systemType" class="form-label">System Type</label>
+              <input type="text" class="form-control" id="systemType" name="systemType" required />
+            </div>
+            <div class="mb-3">
+              <label for="systemId" class="form-label">System ID</label>
+              <input type="text" class="form-control" id="systemId" name="systemId" required />
+            </div>
+            <div class="mb-3">
+              <label for="talkgroups" class="form-label">Talkgroups</label>
+              <textarea class="form-control" id="talkgroups" name="talkgroups" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="tag" class="form-label">Tag</label>
+              <input type="text" class="form-control" id="tag" name="tag" required />
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDrawer" aria-labelledby="offcanvasDrawerLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDrawerLabel">Offcanvas Drawer</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <h6>Logging</h6>
-        <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action">
-            <i class="fas fa-headphones"></i> Ham Log
-          </a>
-          <a href="#" class="list-group-item list-group-item-action">
-            <i class="fas fa-broadcast-tower"></i> SW Log
-          </a>
-          <a href="#" class="list-group-item list-group-item-action">
-            <i class="fas fa-satellite"></i> VHF Log
-          </a>
-          <a href="#" class="list-group-item list-group-item-action">
-            <i class="fas fa-search"></i> Scan Log
-          </a>
+        <div class="row">
+          <div class="col-md-12">
+            <h4>System Frequencies and Repeaters</h4>
+            <div class="mb-3">
+              <label for="systemFrequencies" class="form-label">System Frequencies</label>
+              <textarea class="form-control" id="systemFrequencies" name="systemFrequencies" rows="3"
+                required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="repeaters" class="form-label">Repeaters</label>
+              <textarea class="form-control" id="repeaters" name="repeaters" rows="3" required></textarea>
+            </div>
+          </div>
         </div>
-        <div class="divider my-3"></div>
-      </div>
-      <h1>Scanner Radio Logging</h1>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
-        integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
-        integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
-        integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+      integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+      integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
+      integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/scanlog.js"></script>
   </body>
 
 </html>

@@ -1,4 +1,5 @@
 const toggleColorMode = e => {
+  e.preventDefault();
   if (document.body.classList.contains('dark')) {
     document.body.classList.remove('dark');
     localStorage.setItem('color-mode', 'light');

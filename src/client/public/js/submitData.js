@@ -1,21 +1,30 @@
-$(document).ready(function () {
-  $('#log-form').submit(function (event) {
+document.addEventListener('DOMContentLoaded', () => {
+  const logForm = document.querySelector('#log-form');
+  logForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    var data = {
-      callsign: $('#callsign').val(),
-      frequency: $('#frequency').val(),
-      mode: $('#mode').val()
+    const data = {
+      callsign: document.querySelector('#callsign').value,
+      frequency: document.querySelector('#frequency').value,
+      mode: document.querySelector('#mode').value
     };
-    $.ajax({
-      type: 'POST',
-      url: '/vhflog',
-      data: data,
-      success: function (response) {
-        console.log(response);
+    fetch('/vhflog', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
       },
-      error: function (error) {
-        console.log(error);
-      }
-    });
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.log('There was a problem with the fetch operation:', error);
+      });
   });
 });

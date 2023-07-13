@@ -23,6 +23,11 @@ function validateForm() {
 form.addEventListener('submit', async function (event) {
   event.preventDefault();
 
+  // validate the form
+  if (!validateForm()) {
+    return;
+  }
+
   const name = document.getElementById('uname').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('p1').value;
