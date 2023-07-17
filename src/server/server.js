@@ -12,7 +12,7 @@ const morgan = require('@middlewares/morgan.middleware');
 const helmet = require('@middlewares/helmet.middleware');
 const app = express();
 const logger = require('@utils/logger');
-const { wrapErrors, errorHandler} = require('@middlewares/errorsHandlers.middleware');
+const { wrapErrors, errorHandler } = require('@middlewares/errorsHandlers.middleware');
 
 app.all('/*', function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
