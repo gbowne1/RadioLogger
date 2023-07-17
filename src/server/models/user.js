@@ -15,9 +15,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  followers: {
+    type: Number,
+    default: 0,
+    // We'll keep the followers 0 as the default value
+  }
 });
 
-userSchema.methods.comparePassword = function(passwd) {
+userSchema.methods.comparePassword = function (passwd) {
   return bcrypt.compareSync(passwd, this.password);
 }
 
