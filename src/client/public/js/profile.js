@@ -1,4 +1,19 @@
 $(document).ready(() => {
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get the edit profile button
+    const editProfileButton = document.querySelector('#edit-profile-btn');
+
+    // Get the edit profile modal
+    const editProfileModal = document.querySelector('#edit-profile-modal');
+
+    // Add event listener to the edit profile button
+    editProfileButton.addEventListener('click', () => {
+      // Show the edit profile modal
+      editProfileModal.classList.add('show');
+    });
+  });
+
   // Get the message button
   const messageButton = $('#message-btn');
 
@@ -38,7 +53,7 @@ $(document).ready(() => {
   // Get the follow and like buttons
   const followButton = $('.btn-outline-secondary:first-of-type');
   const likeButton = $('.btn-outline-secondary:last-of-type');
-    const followCount = document.querySelector('.follow-count');
+  const followCount = document.querySelector('.follow-count');
 
   // Add event listeners to the follow and like buttons
   followButton.click(() => {

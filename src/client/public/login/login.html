@@ -22,50 +22,17 @@
   </head>
 
   <body>
-    <div class="container">
-      <nav class="tabs">
-        <ul>
-          <li id="register" tabindex="0"><a>Register</a></li>
-          <li id="login" tabindex="0"><a>Login</a></li>
-          <li id="reset"><a>Reset</a></li>
-        </ul>
-      </nav>
-      <div class="forms">
-        <div class="register">
-          <h2>Register</h2>
-          <form method="post" id="signup-form" action="/api/v1/register">
-            <label for="Username:"></label>
-            <input type="text" id="uname" class="field" name="uname" id="user" required placeholder="Username" />
-            <input class="field" id="email" name="email" required type="email" placeholder="myusername@domain.com" />
-            <input id="p1" class="field" name="pass" required type="password" placeholder="Password" />
-            <input id="p2" class="field" name="pass_confirm" required type="password" placeholder="Rewrite Password" />
-            <button type="submit">Sign Up</button>
-          </form>
-        </div>
-
-        <div class="login hidden">
-          <h2>Sign In</h2>
-          <form id="login-form" method="post" action="signIn.js">
-            <input class="field" name="email" required type="email" placeholder="* myusername@domain.com" />
-            <input class="field" name="pass" required type="password" placeholder="* Password" />
-            <label>
-              <input type="checkbox" name="terms" id="remember-checkbox">
-              <em>Keep me logged in</em>
-            </label>
-            <button type="submit">Login</button>
-          </form>
-        </div>
-
-        <div class="reset hidden">
-          <h2>Reset Your Password</h2>
-          <form method="post" action="resetPassword.js">
-            <input class="field" name="email" type="email" placeholder="*myusername@domain.com" required />
-            <input class="field" name="pass_old" type="password" placeholder="*Old Password" required />
-            <input class="field" name="pass_new" type="password" placeholder="*New Password" required />
-            <button type="submit">Get New One!</button>
-          </form>
-        </div>
+    <div class="login_box">
+      <h2>Login</h2>
+      <div class="user_box">
+        <label>Username</label>
+        <input type="text" required="">
       </div>
+      <div class="user_box">
+        <label>Password</label>
+        <input type="password" required="">
+      </div>
+      <button type="submit">submit</button>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
       integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="

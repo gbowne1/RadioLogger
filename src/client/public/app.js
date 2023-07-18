@@ -1,5 +1,5 @@
 // /src/client/app.js
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", function () {
   const button = document.querySelector('button');
   button.addEventListener('click', () => {
     window.location.href = '/login/login.html';
