@@ -9,6 +9,7 @@ const vhflogRoute = require('./vhflog.route');
 const scanlogRoute = require('./scanlog.route');
 const contestlogRoute = require('./contestlog.route');
 const hamlogRoute = require('./hamlog.route');
+const profileRoute = require('./profile.route');
 
 router.use('/register', registerRoute);
 router.use('/login', loginRoute);
@@ -18,5 +19,6 @@ router.use('/swllog', swllogRoute);
 router.use('/scanlog', scanlogRoute);
 router.use('/contestlog', contestlogRoute);
 router.use('/hamlog', hamlogRoute);
+router.use('/profile', profileRoute)
 
 module.exports = router;
