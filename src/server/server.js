@@ -6,6 +6,7 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
 const db = require('./utils/database');
 const session = require('@middlewares/session.middleware');
 const morgan = require('@middlewares/morgan.middleware');
@@ -24,7 +25,11 @@ app.all('/*', function (req, res, next) {
 app.use(cors({ credentials: true, origin: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(cookieParser('secret'));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['x', 'y']
+}));
 app.use(session);
 app.use(morgan);
 app.use(helmet);
