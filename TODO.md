@@ -9,7 +9,7 @@
 
 ## Signup / Register
 
-- [ ] Decide which signup.js file we are using and/or refactor it. Delete the duplicate and make sure it is linked correctly
+- [ ] 
 
 ## Dashboard
 
@@ -70,4 +70,4 @@ Need some more models, we only have User model
 
 ## Testing
 
-- [ ] Use Mocha and Chai to test the login and all of the user stuff like register, reset password, etc. 
+- [ ] Use Mocha and Chai to test the login and all of the user stuff like register, reset password, etc.
