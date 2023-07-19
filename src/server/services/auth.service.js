@@ -3,20 +3,21 @@ const jwt = require('jsonwebtoken');
 const User = require('@models/user');
 const { API_SECRET } = require('@config/secrets');
 
-exports.login = async (username, password) => {
+exports.login = async (email, password) => {
   const user = await User.findOne({
-    username: username
+    email: email
   });
 
   if (!user || !user.comparePassword(password)) {
     throw new Error('Authentication failed. Invalid user or password');
   }
-  return (user)
+
+  return ({ user })
 }
 
-exports.find = async (username) => {
+exports.find = async (email) => {
   const user = await User.findOne({
-    username: username
+    email: email
   });
 
   if (!user)
@@ -25,9 +26,9 @@ exports.find = async (username) => {
   return user;
 }
 
-exports.resetPassword = async (username, oldPassword, newPassword) => {
+exports.resetPassword = async (email, oldPassword, newPassword) => {
   const user = await User.findOne({
-    username: username
+    email: email
   });
   if (!user || !user.comparePassword(oldPassword))
     throw new Error('Invalid user or password');

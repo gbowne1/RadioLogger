@@ -1,5 +1,6 @@
 const boom = require('boom');
 const registerService = require('@services/register.service');
+const logger = require('@utils/logger');
 
 
 exports.register = async (req, res, next) => {

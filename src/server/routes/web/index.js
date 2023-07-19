@@ -3,7 +3,6 @@ const router = express.Router();
 
 const registerRoute = require('./register.route');
 const loginRoute = require('./login.route');
-const logoutRoute = require('./logout.route');
 const dashboardRoute = require('./dashboard.route');
 const swllogRoute = require('./swllog.route');
 const vhflogRoute = require('./vhflog.route');
@@ -14,7 +13,6 @@ const profileRoute = require('./profile.route');
 
 router.use('/register', registerRoute);
 router.use('/login', loginRoute);
-router.use('/logout', logoutRoute);
 router.use('/dashboard', dashboardRoute);
 router.use('/vhflog', vhflogRoute);
 router.use('/swllog', swllogRoute);

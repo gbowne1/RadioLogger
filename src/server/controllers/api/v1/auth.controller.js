@@ -6,18 +6,17 @@ const authService = require('@services/auth.service');
 
 exports.login = async (req, res, next) => {
   try {
-    const { username, password } = req.body;
-    const isUser = await authService.login(username, password);
+    const { email, password } = req.body;
+    const isUser = await authService.login(email, password);
     if (isUser) {
       req.session.auth = true
       const accessToken = jwt.sign({
-        username: isUser.username
+        email: isUser.email
       }, API_SECRET, {
         expiresIn: 86400
       });
       res.set('authorization', accessToken)
-      const { username, email} = isUser;
-      res.json({ status: 'success', data: {username, email}, accessToken })
+      res.json({ status: 'success', data: isUser, accessToken })
     }
   } catch (err) {
     next(boom.unauthorized(err.message));
