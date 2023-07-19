@@ -11,17 +11,10 @@ const session = require('@middlewares/session.middleware');
 const morgan = require('@middlewares/morgan.middleware');
 const helmet = require('@middlewares/helmet.middleware');
 const app = express();
-const logger = require('@utils/logger');
 const { wrapErrors, errorHandler} = require('@middlewares/errorsHandlers.middleware');
 
-app.all('/*', function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
-
 // Middleware setup
-app.use(cors({ credentials: true, origin: true }));
+app.use(cors(/*{ credentials: true, origin: true }*/));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -44,11 +37,6 @@ app.use(express.static(path.join(__dirname, '../client/public')));
 // Routes
 app.use('/api', apiRoute);
 app.use('/', webRoute);
-
-app.get('/logout', function (req, res) {
-  req.session.destroy();
-  res.send("logout success!");
-});
 
 // 404 Not Found
 app.use('*', (req, res) => {
