@@ -5,5 +5,6 @@ const router = Router();
 
 
 router.post('/', login);
+router.post('/reset', resetPassword);
 
 module.exports = router;
