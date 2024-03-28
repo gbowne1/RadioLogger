@@ -94,3 +94,70 @@ button {
 .button:hover {
   background-color: var(--secondary-color);
 }
+
+#themeToggle {
+  position: relative;
+  /* Required for pseudo-element positioning */
+  display: flex;
+  /* Allow stacking icons side-by-side */
+  align-items: center;
+  /* Center icons vertically */
+  padding: 5px 10px;
+  /* Adjust padding as needed */
+  transition: all 0.3s ease;
+}
+
+#themeToggle::before {
+  content: "";
+  /* Empty content for pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #ddd;
+  /* Light theme background (adjust as needed) */
+  color: #333;
+  /* Light theme text color (adjust as needed) */
+  transition: all 0.3s ease;
+  /* Add smooth transition for state change */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  /* Initially hide light theme content */
+}
+
+#themeToggle::after {
+  content: "";
+  /* Empty content for pseudo-element */
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #333;
+  /* Dark theme background (adjust as needed) */
+  color: #fff;
+  /* Dark theme text color (adjust as needed) */
+  transition: all 0.3s ease;
+  /* Add smooth transition for state change */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#themeToggle.light-theme::before {
+  opacity: 1;
+  /* Show light theme content on light theme state */
+}
+
+#themeToggle.light-theme::after {
+  opacity: 0;
+  /* Hide dark theme content on light theme state */
+}
+
+#themeToggle.light-theme .fa-moon {
+  opacity: 0;
+  /* Hide moon icon on light theme state */
+}

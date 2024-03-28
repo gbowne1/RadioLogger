@@ -56,6 +56,7 @@
     "*.js": "javascript"
   },
   "emmet.includeLanguages": {
-    "javascriptreact": "javascriptreact"
+    "javascriptreact": "javascriptreact",
+	  "javascript": "javascript"
   },
 }

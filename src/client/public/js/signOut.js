@@ -1,30 +1,45 @@
-var jwt = localStorage.getItem("jwt");
-if (jwt === null) {
-  window.location.href = './login.html'
+// Fetch JWT and check for validity
+const jwt = localStorage.getItem("jwt");
+if (!jwt) {
+  window.location.href = './login.html'; // Redirect if JWT is absent
 }
 
-function loadUser() {
-  const xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "{api}");
-  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhttp.setRequestHeader("Authorization", "Bearer "+jwt);
-  xhttp.send();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState === 4) {
-      const objects = JSON.parse(this.responseText);
-      if (objects["status"] === "ok") {
-        const user = objects["user"]
-        document.getElementById("fname").innerHTML = user["fname"];
-        document.getElementById("avatar").src = user["avatar"];
-        document.getElementById("username").innerHTML = user["username"];
+// Function to load user data
+async function loadUser() {
+  try {
+    const response = await fetch("{api}", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + jwt
       }
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      if (data.status === "ok") {
+        const user = data.user;
+        document.getElementById("fname").textContent = user.fname;
+        document.getElementById("avatar").src = user.avatar;
+        document.getElementById("username").textContent = user.username;
+      } else {
+        // Handle potential errors from server response
+        console.error("Error loading user data:", data.message);
+        // Consider redirecting to login if appropriate
+      }
+    } else {
+      // Handle HTTP errors
+      console.error("Error fetching user data:", response.statusText);
+      // Consider redirecting to login or showing an error message
     }
-  };
+  } catch (error) {
+    console.error("Error:", error);
+    // Handle any network errors or other issues
+  }
 }
 
 loadUser();
 
 function logout() {
   localStorage.removeItem("jwt");
-  window.location.href = './login.html'
+  window.location.href = './login.html';
 }

@@ -1,40 +1,15 @@
 const form = document.getElementById('signup-form');
 
-function validateForm() {
+async function handleSubmit(event) {
+  event.preventDefault();
+
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
   const reenterPassword = document.getElementById('reenter-password').value;
 
-  // perform validation checks
-  if (name === '' || email === '' || password === '' || reenterPassword === '') {
-    alert('Please fill in all fields.');
-    return false;
-  }
-
-  if (password !== reenterPassword) {
-    alert('Passwords do not match.');
-    return false;
-  }
-
-  return true;
-}
-
-form.addEventListener('submit', async function (event) {
-  event.preventDefault();
-
-  // validate the form
-  if (!validateForm()) {
-    return;
-  }
-
-  const name = document.getElementById('uname').value;
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('p1').value;
-  const reenterPassword = document.getElementById('p2').value;
-
-  // perform validation checks
-  if (name === '' || email === '' || password === '' || reenterPassword === '') {
+  // Perform validation checks once
+  if (!name || !email || !password || !reenterPassword) {
     alert('Please fill in all fields.');
     return;
   }
@@ -44,7 +19,7 @@ form.addEventListener('submit', async function (event) {
     return;
   }
 
-  // create an object with the form data
+  // Create data object and send request
   const data = {
     username: name,
     email: email,
@@ -61,9 +36,11 @@ form.addEventListener('submit', async function (event) {
 
   if (response.status === 201) {
     // Redirect the user to a success page
-    window.location.href = '/dashboard'; // This could be replaced with /dashboard
+    window.location.href = '/dashboard';
   } else {
     const data = await response.json();
     alert(data.message);
   }
-});
+}
+
+form.addEventListener('submit', handleSubmit);

@@ -1,71 +1,71 @@
-$(document).ready(() => {
+document.addEventListener('DOMContentLoaded', () => {
+  // Get the edit profile button
+  const editProfileButton = document.querySelector('#edit-profile-btn');
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // Get the edit profile button
-    const editProfileButton = document.querySelector('#edit-profile-btn');
+  // Get the edit profile modal
+  const editProfileModal = document.querySelector('#edit-profile-modal');
 
-    // Get the edit profile modal
-    const editProfileModal = document.querySelector('#edit-profile-modal');
-
-    // Add event listener to the edit profile button
-    editProfileButton.addEventListener('click', () => {
-      // Show the edit profile modal
-      editProfileModal.classList.add('show');
-    });
+  // Add event listener to the edit profile button
+  editProfileButton.addEventListener('click', () => {
+    // Show the edit profile modal
+    editProfileModal.classList.add('show');
   });
 
   // Get the message button
-  const messageButton = $('#message-btn');
+  const messageButton = document.getElementById('message-btn');
 
   // Add event listener to the message button
-  messageButton.click(() => {
-    // Send AJAX request to the server
-    $.ajax({
-      url: '/message', // Replace with the URL of your server endpoint
-      type: 'GET',
-      success: (response) => {
+  messageButton.addEventListener('click', async () => {
+    try {
+      const response = await fetch('/message', { // Replace with your endpoint URL
+        method: 'GET'
+      });
+      if (response.ok) {
         // Handle the response from the server here
-      },
-      error: (error) => {
-        console.log(error);
+        const data = await response.json();
+        console.log(data); // Example: log the response data
+      } else {
+        console.error('Error fetching messages:', response.statusText);
       }
-    });
+    } catch (error) {
+      console.error('Error sending message request:', error);
+    }
   });
 
   // Get the carousel and its items and indicators
-  const carousel = $('#carouselExampleIndicators');
-  const carouselItems = carousel.find('.carousel-item');
-  const carouselIndicators = carousel.find('.carousel-indicators button');
+  const carousel = document.getElementById('carouselExampleIndicators');
+  const carouselItems = carousel.querySelectorAll('.carousel-item');
+  const carouselIndicators = carousel.querySelectorAll('.carousel-indicators button');
 
   // Add event listeners to the carousel indicators
   carouselIndicators.forEach((indicator, index) => {
     indicator.addEventListener('click', () => {
-      // Remove the active class from all carousel items and indicators
+      // Remove active class from all carousel items and indicators
       carouselItems.forEach((item) => item.classList.remove('active'));
       carouselIndicators.forEach((indicator) => indicator.classList.remove('active'));
 
-      // Add the active class to the clicked indicator and item
+      // Add active class to the clicked indicator and item
       indicator.classList.add('active');
       carouselItems[index].classList.add('active');
     });
   });
 
-  // Get the follow and like buttons
-  const followButton = $('.btn-outline-secondary:first-of-type');
-  const likeButton = $('.btn-outline-secondary:last-of-type');
+  // Get the follow and like buttons and follow count element
+  const followButton = document.querySelector('.btn-outline-secondary:first-of-type');
+  const likeButton = document.querySelector('.btn-outline-secondary:last-of-type');
   const followCount = document.querySelector('.follow-count');
 
   // Add event listeners to the follow and like buttons
-  followButton.click(() => {
-    // TODO: Implement follow functionality
+  followButton.addEventListener('click', () => {
+    // Implement follow functionality (e.g., send AJAX request)
     console.log('Follow button clicked');
-    // Increment the follow count and update the follow count element
-    const currentCount = parseInt(followCount.textContent);
+    // Update follow count (consider server-side updates for reliability)
+    const currentCount = parseInt(followCount.textContent, 10);
     followCount.textContent = currentCount + 1;
   });
 
-  likeButton.click(() => {
-    // TODO: Implement like functionality
+  likeButton.addEventListener('click', () => {
+    // Implement like functionality (e.g., send AJAX request)
     console.log('Like button clicked');
   });
 });

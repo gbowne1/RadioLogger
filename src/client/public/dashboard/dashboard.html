@@ -30,9 +30,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="/css/dashboard.css">
-    <script crossorigin src="/js/dashboard.js"></script>
-    <script crossorigin src="/js/theme.js"></script>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script crossorigin src="../js/dashboard.js"></script>
+    <script crossorigin src="../js/theme.js"></script>
     <script crossorigin src="../app.js"></script>
   </head>
 
@@ -44,11 +44,11 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/">
-          <img src="logo-placeholder.png" alt="Logo" width="30" height="24">
+          <img src="../icons/radio_64x64.png" alt="Logo" width="30" height="24">
         </a>
         <div class="navbar-nav">
           <button id="themeToggle" class="btn" aria-label="theme">
-            <i class="fas fa-moon"></i>
+            <i class="fas fa-moon"></i> Light Mode
           </button>
           <button class="btn">
             <i class="fas fa-bell" aria-label="notificaionbell"></i>
@@ -79,12 +79,15 @@
         <!-- Add your menu items here -->
       </div>
     </div>
+    <form id="login-form" method="post" action="/login">
+      <button type="submit">Login</button>
+    </form>
     <div class="container-fluid mt-5">
       <div class="row">
         <!-- Add your card elements here -->
         <div class="col-3 d-flex mt-4 my-0">
           <div class="card">
-            <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
+            <img class="card-img-top w-100 h-auto" src="../img/radio_01.jpeg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Contest Log</h5>
               <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
@@ -95,7 +98,7 @@
         </div>
         <div class="col-3 d-flex mt-4 my-0">
           <div class="card">
-            <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
+            <img class="card-img-top w-100 h-auto" src="../img/radio_01.jpeg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Ham Log</h5>
               <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
@@ -106,7 +109,7 @@
         </div>
         <div class="col-3 d-flex mt-4 my-0">
           <div class="card">
-            <img class="card-img-top w-auto h-auto" src="/img/mwradio.jpg" alt="Card image cap">
+            <img class="card-img-top w-auto h-auto" src="../img/mwradio.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">MW Logging</h5>
               <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
@@ -117,7 +120,7 @@
         </div>
         <div class="col-3 d-flex mt-4 my-0">
           <div class="card">
-            <img class="card-img-top w-100 h-auto" src="/img/bc250.jpg" alt="Card image cap">
+            <img class="card-img-top w-100 h-auto" src="../img/bc250.jpg" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title">Scanner Logging</h5>
               <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
@@ -129,7 +132,7 @@
         <div class="row">
           <div class="col-3 d-flex">
             <div class="card">
-              <img class="card-img-top w-auto h-auto" src="/img/swl.jpg" alt="Card image cap">
+              <img class="card-img-top w-auto h-auto" src="../img/swl.jpg" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">Shortwave Logging</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
@@ -140,7 +143,7 @@
           </div>
           <div class="col">
             <div class="card d-flex">
-              <img class="card-img-top w-auto h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
+              <img class="card-img-top w-auto h-auto" src="../img/radio_01.jpeg" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">QSL Card Database</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
@@ -151,7 +154,7 @@
           </div>
           <div class="col">
             <div class="card d-flex">
-              <img class="card-img-top w-auto h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
+              <img class="card-img-top w-auto h-auto" src="../img/radio_01.jpeg" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">VHF Log</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>
@@ -162,7 +165,7 @@
           </div>
           <div class="col">
             <div class="card d-flex">
-              <img class="card-img-top w-100 h-auto" src="/img/radio_01.jpeg" alt="Card image cap">
+              <img class="card-img-top w-100 h-auto" src="../img/radio_01.jpeg" alt="Card image cap">
               <div class="card-body">
                 <h5 class="card-title">Rig Control</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Subtitle</h6>

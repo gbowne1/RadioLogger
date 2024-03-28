@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost:27017/radiologger', { useNewUrlParser: tru
 
 // Get the form element and add an event listener to the submit button
 const form = document.querySelector('form');
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault(); // Prevent the default form submission behavior
 
   // Get the form data
@@ -23,33 +23,37 @@ form.addEventListener('submit', (event) => {
   const location = formData.get('location');
   const systemType = formData.get('systemType');
   const systemId = formData.get('systemId');
-  const talkgroups = formData.get('talkgroups');
+  // Handle talkgroups as an array if applicable
+  const talkgroups = formData.getAll('talkgroups'); // Assuming checkboxes/multi-select
   const tag = formData.get('tag');
   const systemFrequencies = formData.get('systemFrequencies');
   const repeaters = formData.get('repeaters');
 
-  // Create a new ScanLog document
-  const scanLog = new ScanLog({
-    frequency,
-    callSign,
-    tone,
-    description,
-    mode,
-    toneType,
-    location,
-    systemType,
-    systemId,
-    talkgroups,
-    tag,
-    systemFrequencies,
-    repeaters
-  });
+  try {
+    // Create a new ScanLog document
+    const scanLog = new ScanLog({
+      frequency,
+      callSign,
+      tone,
+      description,
+      mode,
+      toneType,
+      location,
+      systemType,
+      systemId,
+      talkgroups, // Assuming array handling
+      tag,
+      systemFrequencies,
+      repeaters
+    });
 
-  // Save the document to the database
-  scanLog.save()
-    .then(() => {
-      console.log('ScanLog saved to database');
-      form.reset(); // Reset the form
-    })
-    .catch(err => console.error('Error saving ScanLog to database', err));
+    // Save the document to the database
+    await scanLog.save();
+    console.log('ScanLog saved to database');
+    form.reset(); // Reset the form
+    // Consider adding user feedback for success (e.g., alert)
+  } catch (err) {
+    console.error('Error saving ScanLog to database', err);
+    // Consider user feedback for errors (e.g., alert)
+  }
 });
