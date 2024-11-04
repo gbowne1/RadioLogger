@@ -1,50 +1,44 @@
-// Connect.js
-/*$('#register').on('click', function () {
-  $('.register').siblings().hide();
-  $('.register').slideToggle();
-});
-$('#login').on('click', function () {
-  $('.login').siblings().hide();
-  $('.login').slideToggle();
-});
-$('#reset').on('click', function () {
-  $('.reset').siblings().hide();
-  $('.reset').slideToggle();
-});*/
+// login.js
 
-const handleLogin = function(e) {
-  const API_V = 'http://localhost:3001/api/v1'; //We need create a file with constant
-  const END_POINT = '/login';
-  const username = document.querySelector('#tbxUsername').value;
-  const password = document.querySelector('#tbxPassword').value;
-  const data = {
-    username: username,
-    password: password
-  }
-  const headers = {
-    "Content-type": "application/json; charset=UTF-8",
-    'Access-Control-Allow-Origin': '*'
-  }
+const API_BASE_URL = '/api/v1'; // Use relative path
+const LOGIN_ENDPOINT = '/login';
 
-  const options = {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(data),
-  }
+const handleLogin = async function (e) {
   e.preventDefault();
 
-  fetch(`${API_V}${END_POINT}`, options)
-  .then(response => response.json())
-  .then(data => {
-      if(data.data) {
-        console.log('Welcome')
-        localStorage.setItem('accessToken', data.accessToken);
-        window.location.replace('http://localhost:3001/dashboard/')
-      }
-    })
-  .catch(err => console.log(err));
-}
+  const username = document.querySelector('#tbxUsername').value;
+  const password = document.querySelector('#tbxPassword').value;
+
+  const data = { username, password };
+
+  try {
+    const response = await fetch(`${API_BASE_URL}${LOGIN_ENDPOINT}`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error('Login failed');
+    }
+
+    const result = await response.json();
+
+    if (result.accessToken) {
+      console.log('Welcome');
+      // Consider using secure HttpOnly cookies instead of localStorage
+      document.cookie = `accessToken=${result.accessToken}; path=/; secure; HttpOnly`;
+      window.location.replace('/dashboard/');
+    } else {
+      throw new Error('No access token received');
+    }
+  } catch (error) {
+    console.error('Login error:', error);
+    alert('Login failed. Please try again.');
+  }
+};
 
 const btnLogin = document.querySelector('#btnLogin');
 btnLogin.addEventListener('click', handleLogin);
-

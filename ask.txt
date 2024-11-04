@@ -1,4 +1,24 @@
-I am creating an application for Shortwave Radio listeners and Amateur radio operators called RadioLogger.  I am using
+I have a website/application that I'm not happy with. It's poorly coded. It barely works. The file structure of the project is terrible. It has a crap ton of files that are unorganized and most do very little.
+
+Its a bunch of unorganized html files and css files and js files on the front end/client.
+
+The html files use CDNs links to load the libraries and some js scripts.
+
+It uses fontawesome and bootstrap and jquery and popper via CDN for the ui.
+
+The backend/server/database is express, node, mongodb with some helper libraries for authentication and authorization, logging, etc. and some other middeware, axios, jwt, cooki eparser etc.
+
+It supposedly has both a regular api and a web api.
+
+I use mongod and mongoose and mongosh locally.
+
+The database itself is kinda incomplete and not well documented.
+
+Theres a lot of errors in the js mainly undefined and undeclared variables and some bad token errors.
+
+Can this be fixed or would it be better to start over?
+
+As it is i can't work on it its too disorganized and barely works.
 
 Node 20.0.4
 Express 4.18.2
@@ -34,6 +54,7 @@ RadioLogger/
     +-- DEVSETUP.md
 +-- src/
     +-- client/
+        +-- note_modules/
         +-- public/
             +-- components/
                 +-- drawer/
@@ -82,6 +103,7 @@ RadioLogger/
                 +-- profile.js
                 +-- resetPassword.js
                 +-- scanlog.js
+                +-- signOut.js
                 +-- signIn.js
                 +-- signUp.js
                 +-- submitData.js
@@ -105,15 +127,15 @@ RadioLogger/
                 +-- vhflog.html
                 +-- vhflog3.html
             +-- app.css
+            +-- app.js
             +-- favicon.ico
             +-- index.css
             +-- index.html
             +-- manifest.json
             +-- robots.txt
             +-- styles.txt
-            +-- info.txt
         +-- register/
-            +-- info.txt
+            +-- register.html
         +-- .babelrc
         +-- index.js
         +-- jsconfig.json
@@ -178,6 +200,10 @@ RadioLogger/
             +-- api/
                 +-- v1/
                     +-- index.js
+                    +-- login.route.js
+                    +-- password.route.js
+                    +-- register.route.js
+                +-- index.js
             +-- web/
                 +-- contestlog.route.js
                 +-- dashboard.route.js
@@ -202,10 +228,10 @@ RadioLogger/
             +-- scanlog.service.js
             +-- vhflog.service.js
         +-- setup/
-            +-- setup.js
         +-- utils/
             +-- database.js
             +-- logger.js
+            +-- users.js
         +-- .env
         +-- .eslintrc.json
         +-- prettierrc.json

@@ -1,0 +1,25 @@
+body {
+font-family: 'Roboto', sans-serif;
+background-color: #f8f9fa;
+padding: 20px;
+}
+
+h2 {
+margin-bottom: 20px;
+}
+
+.dropdown {
+margin-bottom: 20px;
+}
+
+form {
+margin-bottom: 40px;
+border: 1px solid #dee2e6;
+border-radius: 5px;
+padding: 20px;
+background-color: white;
+}
+
+.btn-primary {
+margin-top: 10px;
+}

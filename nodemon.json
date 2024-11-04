@@ -1,5 +1,7 @@
 {
   "watch": ["dist/server"],
+  "type": "object",
   "ext": "js",
-  "exec": "node dist/server/bundle.js"
+  "exec": "node dist/server/bundle.js",
+  "$schema": "http://json-schema.org/draft-04/schema#"
 }

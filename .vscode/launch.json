@@ -8,7 +8,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "/${workspaceFolder}/app.js",
+      "program": "/${workspaceFolder}/src/client/public/app.js",
       "runtimeExecutable": "/usr/bin/node"
     }
   ]

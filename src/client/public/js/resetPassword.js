@@ -1,36 +1,50 @@
-document.querySelector('form[action="resetPassword.js"]').addEventListener('submit', async function (e) {
-  e.preventDefault();
+function initPasswordReset() {
+  const form = document.querySelector('form[action="resetPassword.js"]');
 
-  const form = e.target;
-  const email = form.email.value;
-  const oldPassword = form.pass_old.value;
-  const newPassword = form.pass_new.value;
+  if (!form) {
+    console.warn('Password reset form not found');
+    return;
+  }
 
-  try {
-    const response = await fetch('/reset-password', {
+  function handlePasswordReset(e) {
+    e.preventDefault();
+
+    const formData = {
+      email: form.email.value,
+      oldPassword: form.pass_old.value,
+      newPassword: form.pass_new.value
+    };
+
+    fetch('/reset-password', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        email,
-        oldPassword,
-        newPassword
-      })
+      body: JSON.stringify(formData)
+    })
+    .then(function(response) {
+      if (response.ok) {
+        return response.json().then(function(data) {
+          console.log('Password reset successful:', data.message);
+          // You could display the success message to the user
+          // For example:
+          alert(data.message || 'Password successfully reset');
+          // window.location.href = '/login';
+        });
+      } else {
+        return response.json().then(function(data) {
+          throw new Error(data.message || 'Failed to reset password');
+        });
+      }
+    })
+    .catch(function(error) {
+      console.error('Password reset failed:', error.message);
+      // Display error to user
+      alert(error.message);
     });
-
-    if (response.ok) {
-      // Handle success, e.g., display a success message
-      console.log('Password reset successful');
-      // Consider redirecting to login or displaying a success message
-    } else {
-      // Handle error, e.g., display an error message based on response
-      const errorData = await response.json();
-      console.error('Error resetting password:', errorData.message);
-      // Display a user-friendly error message based on the error response
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    // Handle network errors or other unexpected issues
   }
-});
+
+  form.addEventListener('submit', handlePasswordReset);
+}
+
+document.addEventListener('DOMContentLoaded', initPasswordReset);

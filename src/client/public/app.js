@@ -1,36 +1,25 @@
-// /src/client/app.js
 document.addEventListener("DOMContentLoaded", function () {
   const button = document.querySelector('button');
+
+  // Redirect to login page
   button.addEventListener('click', () => {
-    window.location.href = '/login/login.html';
+      window.location.href = './login.html';
   });
 
-  const loginForm = document.getElementById('login-form');
-  const rememberCheckbox = document.getElementById('remember-checkbox');
-
-  loginForm.addEventListener('submit', (event) => {
-    if (!rememberCheckbox.checked) {
-      event.preventDefault();
-      alert('Please check the "Keep me logged in" box to proceed.');
-    }
-  });
-
-  $(document).ready(function () {
-    $('#themeToggle').on('click', function () {
-      $('body').toggleClass('dark-theme');
-    });
-  });
-
-  const toggleColorMode = e => {
-    if (document.body.classList.contains('dark')) {
-      document.body.classList.remove('dark');
-      localStorage.setItem('color-mode', 'light');
-    } else {
-      document.body.classList.add('dark');
-      localStorage.setItem('color-mode', 'dark');
-    }
-  };
-
+  // Theme toggle functionality
   const themeToggle = document.getElementById('themeToggle');
-  themeToggle.addEventListener('click', toggleColorMode);
+
+  if (themeToggle) {
+      themeToggle.addEventListener('click', toggleColorMode);
+  }
+
+  function toggleColorMode() {
+      if (document.body.classList.contains('dark')) {
+          document.body.classList.remove('dark');
+          localStorage.setItem('color-mode', 'light');
+      } else {
+          document.body.classList.add('dark');
+          localStorage.setItem('color-mode', 'dark');
+      }
+  }
 });

@@ -13,7 +13,7 @@ const format = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }),
   winston.format.colorize({ all: true }),
   winston.format.printf((info) => `[${info.timestamp}]:[${info.level}] ${info.message}`
-  ),
+  )
 );
 
 const transports = [
@@ -22,9 +22,9 @@ const transports = [
     level: "debug",
     handleExceptions: true,
     format: winston.format.combine(
-      winston.format.colorize(),
+      winston.format.colorize()
       //winston.format.simple()
-    ),
+    )
   }
   ),
   new winston.transports.File({

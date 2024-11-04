@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add event listener to the message button
   messageButton.addEventListener('click', async () => {
     try {
-      const response = await fetch('/message', { // Replace with your endpoint URL
+      const response = await fetch('/message', {
         method: 'GET'
       });
       if (response.ok) {
-        // Handle the response from the server here
         const data = await response.json();
         console.log(data); // Example: log the response data
+        // Update UI based on the received data
       } else {
         console.error('Error fetching messages:', response.statusText);
       }
@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Add active class to the clicked indicator and item
       indicator.classList.add('active');
       carouselItems[index].classList.add('active');
+
+      // Scroll to the correct slide
+      carousel.scrollTo(index);
     });
   });
 
@@ -59,13 +62,46 @@ document.addEventListener('DOMContentLoaded', () => {
   followButton.addEventListener('click', () => {
     // Implement follow functionality (e.g., send AJAX request)
     console.log('Follow button clicked');
+
     // Update follow count (consider server-side updates for reliability)
     const currentCount = parseInt(followCount.textContent, 10);
     followCount.textContent = currentCount + 1;
+
+    // Send AJAX request to update server
+    fetch('/follow', {
+      method: 'POST',
+      body: JSON.stringify({ userId: 'currentUserId' }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Follow successful:', data);
+    })
+    .catch(error => {
+      console.error('Error following:', error);
+    });
   });
 
   likeButton.addEventListener('click', () => {
     // Implement like functionality (e.g., send AJAX request)
     console.log('Like button clicked');
+
+    // Update like count (consider server-side updates for reliability)
+    const currentCount = parseInt(document.querySelector('.like-count').textContent, 10);
+    document.querySelector('.like-count').textContent = currentCount + 1;
+
+    // Send AJAX request to update server
+    fetch('/like', {
+      method: 'POST',
+      body: JSON.stringify({ postId: 'postId' }),
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Like successful:', data);
+    })
+    .catch(error => {
+      console.error('Error liking:', error);
+    });
   });
 });

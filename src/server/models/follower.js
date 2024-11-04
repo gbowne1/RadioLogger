@@ -12,7 +12,7 @@ const followerSchema = new mongoose.Schema({
     },
 
 });
-// This model is to maintain the list of the followers of a particular user. This can be helpful if you have list 
+// This model is to maintain the list of the followers of a particular user. This can be helpful if you have list
 // all the followers.
 
 const Follower = mongoose.model('Follower', followerSchema);
