@@ -1,17 +1,14 @@
-html {
-  text-align: center;
+html, body {
   height: 100%;
-}
-
-body {
   margin: 0;
-  padding: 0px;
-  font-family: sans-serif;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
   background: linear-gradient(#141e30, #243b55);
+  text-align: center;
 }
 
 .login_box {
-  background-color: rgba(0, 0, 0, 5);
+  background-color: rgba(0, 0, 0, 0.5); /* Fixed RGBA */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -24,41 +21,40 @@ body {
 }
 
 .login_box h2 {
-  margin: 0 0 30px;
-  padding: 0;
+  margin-bottom: 30px;
   color: #fff;
-  text-align: center;
 }
 
-.login_box .user_box {
+.user_box {
   position: relative;
+  margin-bottom: 30px;
 }
 
-.login_box .user_box input {
+.user_box input {
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
   color: #fff;
-  margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid #fff;
-  outline: none;
   background: transparent;
+  outline: none;
 }
 
-.login_box .user_box label {
+.user_box label {
   position: absolute;
-  top: 0;
+  top: 10px;
   left: 0;
-  padding: 10px 0;
+  padding: 0;
   font-size: 16px;
   color: #fff;
   pointer-events: none;
-  transition: 0.5s;
+  transition: 0.3s ease all;
 }
 
-.login_box .user_box input:focus~label,
-.login_box .user_box input:valid~label {
+
+.user_box input:focus ~ label,
+.user_box input:valid ~ label {
   top: -20px;
   left: 0;
   color: #03e9f4;
@@ -66,6 +62,24 @@ body {
 }
 
 button {
-  margin: 0;
   background-color: #03e9f4;
+  border: none;
+  padding: 12px 24px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #029dbf;
+}
+
+@media (max-width: 480px) {
+  .login_box {
+    width: 90%;
+    padding: 30px;
+  }
 }

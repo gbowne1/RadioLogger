@@ -1,14 +1,12 @@
 :root {
   --primary-color: #0d6efd;
   --secondary-color: #ffffff;
-  --panel-width: 500px;
-  --panel-height: 750px;
-  --modal-width: 1200px;
-  --modal-height: 750px;
+  --modal-width: 80vw;
+  --modal-height: 75vh;
   --panel-text-size: 24px;
   --panel-text-font: 'Open Sans', sans-serif;
   --panel-text-color: #000000;
-  --panel-image-url: 'https://via.placeholder.com/500x750';
+  --panel-image-url: 'https://via.placeholder.com/600x750';
   --panel-text-heading-size: 38px;
   --panel-text-heading-font: 'Roboto', sans-serif;
   --panel-text-heading-weight: bold;
@@ -24,33 +22,27 @@
   background-color: var(--secondary-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .modal-content {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
   height: 100%;
 }
 
-.panel {
-  width: var(--panel-width);
-  height: var(--panel-height);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-image: url(var)((--panel-image-url));
+.panel-image {
+  flex: 1;
+  background-image: url(var(--panel-image-url));
   background-size: cover;
+  background-position: center;
 }
 
 .panel-text {
-  width: calc(50% - 20px);
-  padding: 20px;
+  flex: 1;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
   color: var(--panel-text-color);
 }
@@ -59,11 +51,11 @@
   font-size: var(--panel-text-heading-size);
   font-family: var(--panel-text-heading-font);
   font-weight: var(--panel-text-heading-weight);
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .panel-text p {
   font-size: var(--panel-text-size);
   font-family: var(--panel-text-font);
-  margin-bottom: 10px;
+  line-height: 1.6;
 }

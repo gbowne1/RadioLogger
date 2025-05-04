@@ -146,7 +146,7 @@
 	// Controls the width of the cursor when `editor.cursorStyle` is set to `line`.
 	"editor.cursorWidth": 0,
 	// Controls whether inline color decorations should be shown using the default document color provider
-	"editor.defaultColorDecorators": false,
+	"editor.defaultColorDecorators": "never",
 	// Defines a default folding range provider that takes precedence over all other folding range providers. Must be the identifier of an extension contributing a folding range provider.
 	"editor.defaultFoldingRangeProvider": null,
 	// Defines a default formatter which takes precedence over all other formatter settings. Must be the identifier of an extension contributing a formatter.
@@ -3714,5 +3714,6 @@
 	"references.preferredLocation": "peek",
 	// Simple Browser
 	// Enable/disable the floating indicator that shows when focused in the simple browser.
-	"simpleBrowser.focusLockIndicator.enabled": true
+	"simpleBrowser.focusLockIndicator.enabled": true,
+	"testing.automaticallyOpenTestResults": "openOnTestStart"
 }

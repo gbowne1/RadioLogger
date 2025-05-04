@@ -1,25 +1,46 @@
 body {
-font-family: 'Roboto', sans-serif;
-background-color: #f8f9fa;
-padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f2f5;
+  color: #212529;
+  padding: 20px;
+}
+
+.settings-container {
+  max-width: 800px;
+  margin: auto;
 }
 
 h2 {
-margin-bottom: 20px;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
 }
 
-.dropdown {
-margin-bottom: 20px;
+.settings-form {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 25px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.03);
 }
 
-form {
-margin-bottom: 40px;
-border: 1px solid #dee2e6;
-border-radius: 5px;
-padding: 20px;
-background-color: white;
+.settings-form h6 {
+  font-size: 1rem;
+  color: #0d6efd;
+  margin-bottom: 10px;
 }
 
-.btn-primary {
-margin-top: 10px;
+.form-label {
+  font-size: 0.9rem;
+}
+
+.form-control-sm,
+.form-select-sm {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.btn-sm {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.8rem;
 }

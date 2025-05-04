@@ -1,56 +1,157 @@
-/* swllog.css */
-
-/* Fixed Blue Navbar */
-.navbar {
-  width: 1884px;
-  height: 60px;
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-/* Off-canvas Drawer */
-.offcanvas {
-  width: 250px;
-}
-
-/* Dropdown Menu */
-.dropdown-menu {
-  left: auto !important;
-  right: 0;
-}
-
-/* Light Theme */
-.light-theme {
+/* Container Styling */
+.container {
   background-color: white;
-  color: black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 1200px;
+  margin: 30px auto;
 }
 
-.light-theme .navbar {
-  background-color: blue;
+/* Header */
+h1 {
+  font-size: 2.5rem;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.light-theme a {
-  color: #0033cc;
+/* Form Styling */
+form {
+  margin-bottom: 30px;
 }
 
-/* Dark Theme */
-.dark-theme {
-  background-color: #121212;
-  color: #eee;
+label {
+  font-weight: bold;
+  font-size: 1rem;
 }
 
-.dark-theme .navbar {
-  background-color: black;
+input, select, textarea {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin-top: 5px;
 }
 
-.dark-theme a {
-  color: #809fff;
+input[type="text"], input[type="number"], select, textarea {
+  font-size: 1rem;
 }
 
-/* High contrast for accessibility */
-:focus:not(:focus-visible) {
-  outline: none;
+textarea {
+  height: 120px;
 }
 
-:focus-visible {
-  outline: 2px solid #0066ff;
-  outline-offset: 2px;
+/* Submit Button */
+button[type="button"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+button[type="button"]:hover {
+  background-color: #0056b3;
+}
+
+/* Station Results Suggestions */
+#stationResults {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#stationResults .list-group-item {
+  cursor: pointer;
+}
+
+#stationResults .list-group-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Search Bar */
+#searchInput {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  text-align: left;
+  padding: 12px;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Delete Button Styling */
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+      padding: 15px;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  .form-group {
+      margin-bottom: 15px;
+  }
+
+  input, select, textarea {
+      font-size: 0.9rem;
+  }
+
+  .table th, .table td {
+      font-size: 0.9rem;
+  }
 }
