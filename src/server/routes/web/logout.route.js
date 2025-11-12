@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { destroy } = require('@controllers/web/auth.controller');
+const { destroy } = require('controllers/web/auth.controller');
 
 const router = Router();
 

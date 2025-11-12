@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { show } = require('@controllers/web/vhflog.controller');
+const { show } = require('controllers/web/vhflog.controller');
 
 const router = Router();
 

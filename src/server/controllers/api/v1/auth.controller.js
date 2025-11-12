@@ -1,8 +1,8 @@
-const boom = require('boom');
+const boom = require('@hapi/boom');
 const jwt = require('jsonwebtoken');
-const { API_SECRET } = require('@config/secrets');
+const { API_SECRET } = require('config/secrets');
 
-const authService = require('@services/auth.service');
+const authService = require('services/auth.service');
 
 exports.login = async (req, res, next) => {
   try {

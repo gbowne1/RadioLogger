@@ -1,17 +1,16 @@
-require('module-alias/register');
-const apiRoute = require('@routes/api');
-const webRoute = require('@routes/web');
+const apiRoute = require('./routes/api');
+const webRoute = require('./routes/web');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const db = require('./utils/database');
-const session = require('@middlewares/session.middleware');
-const morgan = require('@middlewares/morgan.middleware');
-const helmet = require('@middlewares/helmet.middleware');
+const session = require('./middlewares/session.middleware');
+const morgan = require('./middlewares/morgan.middleware');
+const helmet = require('./middlewares/helmet.middleware');
 const app = express();
-const { wrapErrors, errorHandler} = require('@middlewares/errorsHandlers.middleware');
+const { wrapErrors, errorHandler} = require('./middlewares/errorsHandlers.middleware');
 
 // Middleware setup
 app.use(cors(/*{ credentials: true, origin: true }*/));

@@ -1,6 +1,6 @@
 const winston = require('winston');
-const levels = require('@config/levelLog');
-const colors = require('@config/colorLevel');
+const levels = require('config/levelLog');
+const colors = require('config/colorLevel');
 
 const level = () => {
   const env = process.env.NODE_ENV || 'development';

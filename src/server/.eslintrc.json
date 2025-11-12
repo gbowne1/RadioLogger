@@ -1,26 +1,27 @@
 {
-  "env": {},
-  "extends": "",
-  "globals": {
-
-  },
-  "ignorePatterns": "",
-  "noInlineConfig": true,
-  "overrides": [
-  ],
-  "parser": "",
-  "parserOptions": {
-    "ecmaVersion": 2016,
-    "sourceType": "script",
-    "ecmaFeatures": {}
-  },
-  "plugins": [
-
-  ],
-  "reportUnusedDisableDirectives": true,
-  "root": false,
-  "rules": {
-  },
-  "settings": {
-  }
+    "env":
+    {},
+    "extends": "",
+    "globals":
+    {},
+    "ignorePatterns": "",
+    "noInlineConfig": true,
+    "overrides":
+    [],
+    "parser": "",
+    "parserOptions":
+    {
+        "ecmaVersion": "latest",
+        "sourceType": "script",
+        "ecmaFeatures":
+        {}
+    },
+    "plugins":
+    [],
+    "reportUnusedDisableDirectives": true,
+    "root": false,
+    "rules":
+    {},
+    "settings":
+    {}
 }

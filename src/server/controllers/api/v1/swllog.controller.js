@@ -1,4 +1,4 @@
-const boom = require('boom');
-const logger = require('@utils/logger');
+const boom = require('@hapi/boom');
+const logger = require('utils/logger');
 //const swllogService = require();
 
