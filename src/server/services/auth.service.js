@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
-const { API_SECRET } = require('config/secrets');
+const { API_SECRET } = require('../config/secrets');
 
 exports.login = async (username, password) => {
   const user = await User.findOne({

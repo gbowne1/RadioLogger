@@ -12,6 +12,8 @@ const helmet = require('./middlewares/helmet.middleware');
 const app = express();
 const { wrapErrors, errorHandler} = require('./middlewares/errorsHandlers.middleware');
 
+console.log('app.js, setting up middleware...');
+
 // Middleware setup
 app.use(cors(/*{ credentials: true, origin: true }*/));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,7 +22,6 @@ app.use(cookieParser());
 app.use(session);
 app.use(morgan);
 app.use(helmet);
-
 
 // Database connection
 db.connect();
@@ -44,5 +45,7 @@ app.use('*', (req, res) => {
 
 app.use(wrapErrors);
 app.use(errorHandler);
+
+console.log('app.js done.');
 
 module.exports = app
