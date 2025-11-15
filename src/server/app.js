@@ -3,7 +3,6 @@ const webRoute = require('./routes/web');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const db = require('./utils/database');
 const session = require('./middlewares/session.middleware');
@@ -17,8 +16,7 @@ console.log('app.js, setting up middleware...');
 // Middleware setup
 app.use(cors(/*{ credentials: true, origin: true }*/));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cookieParser());
 app.use(session);
 app.use(morgan);

@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
 const vhfLogSchema = new mongoose.Schema({
   callsign: { type: String, required: true },
