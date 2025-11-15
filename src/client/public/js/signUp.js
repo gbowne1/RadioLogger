@@ -1,6 +1,6 @@
-const form = document.getElementById('signup-form');
+const form = document.getElementById('register_submit');
 
-async function handleSubmit(event) {
+async function handleClick(event) {
   event.preventDefault();
 
   const name = document.getElementById('name').value;
@@ -43,4 +43,4 @@ async function handleSubmit(event) {
   }
 }
 
-form.addEventListener('submit', handleSubmit);
+form.addEventListener('click', handleClick);

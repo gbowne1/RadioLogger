@@ -15,7 +15,8 @@ const { wrapErrors, errorHandler} = require('./middlewares/errorsHandlers.middle
 console.log('app.js, setting up middleware...');
 
 // Middleware setup
-app.use(cors(/*{ credentials: true, origin: true }*/));
+app.use(cors()); // /*{ credentials: true, origin: true }*/
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -39,7 +40,7 @@ app.use('/api', apiRoute);
 app.use('/', webRoute);
 
 // 404 Not Found
-app.use('*', (req, res) => {
+app.use('*splat', (req, res) => {
   res.status(404).send('404 Not Found');
 });
 

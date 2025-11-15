@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const button = document.querySelector('button');
 
   // Redirect to login page
-  button.addEventListener('click', () => {
-      window.location.href = './login.html';
-  });
+  // button.addEventListener('click', () => {
+  //     window.location.href = './login.html';
+  // });
 
   // Theme toggle functionality
   const themeToggle = document.getElementById('themeToggle');

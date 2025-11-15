@@ -11,7 +11,8 @@ exports.register = async (data) => {
   const user = new User(data)
   user.password = bcrypt.hashSync(data.password, 10);
 
+  const saveResult = await user.save();
+  console.log('register saved?', saveResult, user);
 
-  await user.save()
   return { ...user._doc, password: null };
 }

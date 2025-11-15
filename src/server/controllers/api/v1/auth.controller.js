@@ -8,6 +8,7 @@ exports.login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const isUser = await authService.login(username, password);
+    console.log('attempting to log in', username, password, 'isUser', isUser);
     if (isUser) {
       req.session.auth = true
       const accessToken = jwt.sign({
@@ -20,6 +21,7 @@ exports.login = async (req, res, next) => {
       res.json({ status: 'success', data: { username, email }, accessToken })
     }
   } catch (err) {
+    console.log('attempting to log in, err', err);
     next(boom.unauthorized(err.message));
   }
 }

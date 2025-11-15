@@ -13,8 +13,10 @@ const getToken = (authHeader) => {
 module.exports = async (req, res, next) => {
   const authHeader = req.headers['authorization'];
 
-  if (!authHeader)
+  if (!authHeader) {
     next(boom.unauthorized('The request cannot be processed'));
+    return;
+  }
 
   const token = getToken(authHeader);
   try {
