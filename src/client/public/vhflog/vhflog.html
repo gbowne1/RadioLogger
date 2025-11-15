@@ -31,7 +31,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="../css/vhflog.css">
-    <script crossorigin src="../js/vhflog.js"></script>
   </head>
 
   <body>
@@ -133,12 +132,11 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <input type="submit" value="Submit">
+          <input id="vhflog_submit" type="submit" value="Submit">
         </div>
       </div>
     </div>
-    <script crossorigin defer src="../js/submitData.js"></script>
-    <script crossorigin defer src="../js/addData.js"></script>
+    <script type="module" src="../app.js"></script>
   </body>
 
 </html>

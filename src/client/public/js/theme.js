@@ -1,5 +1,9 @@
-document.addEventListener('DOMContentLoaded', function () {
+
+function initThemeToggle() {
   const themeToggle = document.getElementById('themeToggle');
+  if (!themeToggle) {
+    return;
+  }
   const body = document.body;
 
   // Check for saved preference
@@ -16,4 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
       : '<i class="fas fa-moon"></i> Light Mode';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
-});
+}
+
+export { initThemeToggle };

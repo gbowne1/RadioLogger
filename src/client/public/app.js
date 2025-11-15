@@ -1,25 +1,20 @@
+import { initThemeToggle } from './js/theme.js';
+import { initVhfLog } from './js/vhflog.js';
+import { initPasswordReset, initSignUp } from './js/signUp.js';
+
 document.addEventListener("DOMContentLoaded", function () {
-  const button = document.querySelector('button');
+
+  initThemeToggle();
+  initVhfLog();
+  initPasswordReset();
+  initSignUp();
 
   // Redirect to login page
-  // button.addEventListener('click', () => {
-  //     window.location.href = './login.html';
-  // });
-
-  // Theme toggle functionality
-  const themeToggle = document.getElementById('themeToggle');
-
-  if (themeToggle) {
-      themeToggle.addEventListener('click', toggleColorMode);
+  const button = document.getElementById('index_login_button');
+  if (button) {
+    button.addEventListener('click', () => {
+      window.location.href = './login.html';
+    });
   }
 
-  function toggleColorMode() {
-      if (document.body.classList.contains('dark')) {
-          document.body.classList.remove('dark');
-          localStorage.setItem('color-mode', 'light');
-      } else {
-          document.body.classList.add('dark');
-          localStorage.setItem('color-mode', 'dark');
-      }
-  }
 });
