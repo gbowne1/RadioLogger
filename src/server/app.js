@@ -15,7 +15,7 @@ const { wrapErrors, errorHandler} = require('./middlewares/errorsHandlers.middle
 console.log('app.js, setting up middleware...');
 
 // Middleware setup
-app.use(cors()); // /*{ credentials: true, origin: true }*/
+app.use(cors(/*{ credentials: true, origin: true }*/));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
