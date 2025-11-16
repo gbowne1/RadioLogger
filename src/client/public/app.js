@@ -4,6 +4,7 @@ import { initPasswordReset, initSignUp } from './js/signUp.js';
 import { initScanLog } from './js/scanlog.js';
 import { initLogin } from './js/login.js';
 import { initProfile } from './js/profile.js';
+import { initSwlLog } from './js/swllog.js';
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initScanLog();
   initLogin();
   initProfile();
+  initSwlLog();
 
   // Redirect to login page
   const button = document.getElementById('index_login_button');
