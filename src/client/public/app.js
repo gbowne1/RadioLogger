@@ -1,6 +1,9 @@
 import { initThemeToggle } from './js/theme.js';
 import { initVhfLog } from './js/vhflog.js';
 import { initPasswordReset, initSignUp } from './js/signUp.js';
+import { initScanLog } from './js/scanlog.js';
+import { initLogin } from './js/login.js';
+import { initProfile } from './js/profile.js';
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -8,6 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
   initVhfLog();
   initPasswordReset();
   initSignUp();
+  initScanLog();
+  initLogin();
+  initProfile();
 
   // Redirect to login page
   const button = document.getElementById('index_login_button');

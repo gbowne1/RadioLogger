@@ -1,31 +1,32 @@
 'use strict';
 
 // Import Mongoose and the ScanLog model
-const mongoose = require('mongoose');
-const ScanLog = require('./models/scanlog');
+// const mongoose = require('mongoose');
+// const ScanLog = require('./models/scanlog');
 
-// Connect to the MongoDB database
-mongoose.connect('mongodb://localhost:27017/radiologger', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(function() {
-  console.log('Connected to MongoDB');
-})
-.catch(function(err) {
-  console.error('Error connecting to MongoDB', err);
-});
+// // Connect to the MongoDB database
+// mongoose.connect('mongodb://localhost:27017/radiologger', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
+// .then(function() {
+//   console.log('Connected to MongoDB');
+// })
+// .catch(function(err) {
+//   console.error('Error connecting to MongoDB', err);
+// });
+
 
 // Get the form element and add an event listener to the submit button
 function initScanLog() {
-  const form = document.querySelector('form');
+  const form = document.getElementById('scanlog_form');
   if (!form) {
     console.warn('Scan log form not found');
     return;
   }
 
   function handleSubmit(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault();
 
     // Get the form data
     const formData = new FormData(form);
@@ -45,24 +46,25 @@ function initScanLog() {
       repeaters: formData.get('repeaters')
     };
 
-    // Create a new ScanLog document
-    const scanLog = new ScanLog(scanLogData);
+    alert('todo: save via server call');
 
-    // Save the document to the database
-    scanLog.save()
-      .then(function() {
-        console.log('ScanLog saved to database');
-        form.reset(); // Reset the form
-        alert('Scan log saved successfully!'); // User feedback
-      })
-      .catch(function(err) {
-        console.error('Error saving ScanLog to database', err);
-        alert('Error saving scan log: ' + err.message); // User feedback
-      });
+    // Create a new ScanLog document
+    // const scanLog = new ScanLog(scanLogData);
+
+    // // Save the document to the database
+    // scanLog.save()
+    //   .then(function() {
+    //     console.log('ScanLog saved to database');
+    //     form.reset(); // Reset the form
+    //     alert('Scan log saved successfully!'); // User feedback
+    //   })
+    //   .catch(function(err) {
+    //     console.error('Error saving ScanLog to database', err);
+    //     alert('Error saving scan log: ' + err.message); // User feedback
+    //   });
   }
 
   form.addEventListener('submit', handleSubmit);
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initScanLog);
+export { initScanLog };
