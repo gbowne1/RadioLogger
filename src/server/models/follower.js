@@ -3,12 +3,11 @@ const mongoose = require('mongoose');
 const followerSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
+        required: true
     },
     followerusername: {
         type: String,
-        required: true,
-        unique: true,
+        required: true
     },
 
 });
