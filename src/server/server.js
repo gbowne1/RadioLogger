@@ -1,6 +1,7 @@
 const app = require('./app');
 const logger = require('@utils/logger');
 const { PORT } = require('@config/variables');
+const net = require('net');
 
 function findAvailablePort(startPort, endPort) {
   for (let port = startPort; port <= endPort; port++) {
