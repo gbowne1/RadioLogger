@@ -19,7 +19,6 @@ const format = winston.format.combine(
 const transports = [
   new winston.transports.Console(
     {
-    level: "debug",
     handleExceptions: true,
     format: winston.format.combine(
       winston.format.colorize()
