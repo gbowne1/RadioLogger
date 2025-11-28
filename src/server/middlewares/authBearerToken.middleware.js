@@ -18,7 +18,7 @@ module.exports = async (req, res, next) => {
 
   const token = getToken(authHeader);
   try {
-    const decode = jwt.verify(JSON.parse(token), API_SECRET);
+    const decode = jwt.verify(token, API_SECRET);
     const { email } = decode;
     const user = await find(email);
     req.userId = user._id;
