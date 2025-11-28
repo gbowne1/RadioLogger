@@ -4,7 +4,7 @@
   "description": "A Radio Logging application build with NodeJS and ExpressJS",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon server.js",
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
     "lint:check": "eslint .",
