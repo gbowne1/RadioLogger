@@ -11,8 +11,8 @@ const followerSchema = new mongoose.Schema({
     },
 
 });
-// This model is to maintain the list of the followers of a particular user. This can be helpful if you have list
-// all the followers.
+
+followerSchema.index({ username: 1, followerusername: 1 }, { unique: true });
 
 const Follower = mongoose.model('Follower', followerSchema);
 
