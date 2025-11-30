@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <title>My Website</title>
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@700&display=swap" rel="stylesheet">
   </head>
-
   <body style="background-color: #0d6efd;">
-    <button onclick="window.location.href='./login.html'">Go to Login</button>
+    <button id="index_login_button">Go to Login</button>
     <div class="modal">
       <div class="modal-content">
         <div class="panel-image"></div>
@@ -18,8 +16,6 @@
         </div>
       </div>
     </div>
-    <script src="./app.js"></script>
-    <script src="/src/client/index.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
-
 </html>

@@ -1,5 +1,5 @@
-const boom = require('boom');
-const registerService = require('@services/register.service');
+const boom = require('@hapi/boom');
+const registerService = require('../../../services/register.service');
 
 
 exports.register = async (req, res, next) => {

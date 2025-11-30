@@ -1,25 +1,28 @@
+import { initThemeToggle } from './js/theme.js';
+import { initVhfLog } from './js/vhflog.js';
+import { initPasswordReset, initSignUp } from './js/signUp.js';
+import { initScanLog } from './js/scanlog.js';
+import { initLogin } from './js/login.js';
+import { initProfile } from './js/profile.js';
+import { initSwlLog } from './js/swllog.js';
+
 document.addEventListener("DOMContentLoaded", function () {
-  const button = document.querySelector('button');
+
+  initThemeToggle();
+  initVhfLog();
+  initPasswordReset();
+  initSignUp();
+  initScanLog();
+  initLogin();
+  initProfile();
+  initSwlLog();
 
   // Redirect to login page
-  button.addEventListener('click', () => {
+  const button = document.getElementById('index_login_button');
+  if (button) {
+    button.addEventListener('click', () => {
       window.location.href = './login.html';
-  });
-
-  // Theme toggle functionality
-  const themeToggle = document.getElementById('themeToggle');
-
-  if (themeToggle) {
-      themeToggle.addEventListener('click', toggleColorMode);
+    });
   }
 
-  function toggleColorMode() {
-      if (document.body.classList.contains('dark')) {
-          document.body.classList.remove('dark');
-          localStorage.setItem('color-mode', 'light');
-      } else {
-          document.body.classList.add('dark');
-          localStorage.setItem('color-mode', 'dark');
-      }
-  }
 });

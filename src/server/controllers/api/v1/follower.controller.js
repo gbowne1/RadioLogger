@@ -8,7 +8,7 @@ mongoose.connect('mongodb://localhost/myapp', { useNewUrlParser: true });
 
 app.use(express.json());
 
-app.get('/follow:id', async (req, res) => {
+app.get('/follow/:id', async (req, res) => {
   // This is a get request which will serve the user all of the particular followers
   const username = req.params.id;
   try {

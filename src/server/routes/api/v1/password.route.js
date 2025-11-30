@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const { login, resetPassword } = require('@controllers/api/v1/password.controller');
-const authBearerToken = require('@middlewares/authBearerToken.middleware');
+const { login, resetPassword } = require('../../../controllers/api/v1/password.controller');
+const authBearerToken = require('../../../middlewares/authBearerToken.middleware');
 
 const router = Router();
 

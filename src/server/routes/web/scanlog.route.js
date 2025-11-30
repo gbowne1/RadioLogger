@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { show } = require('@controllers/web/scanlog.controller');
+const { show } = require('../../controllers/web/scanlog.controller');
 
 const router = Router();
 

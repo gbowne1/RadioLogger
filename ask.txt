@@ -6,7 +6,7 @@ The html files use CDNs links to load the libraries and some js scripts.
 
 It uses fontawesome and bootstrap and jquery and popper via CDN for the ui.
 
-The backend/server/database is express, node, mongodb with some helper libraries for authentication and authorization, logging, etc. and some other middeware, axios, jwt, cooki eparser etc.
+The backend/server/database is express, node, mongodb with some helper libraries for authentication and authorization, logging, etc. and some other middeware, jwt, cookie parser etc.
 
 It supposedly has both a regular api and a web api.
 
@@ -126,7 +126,6 @@ RadioLogger/
             +-- vhflog/
                 +-- vhflog.html
                 +-- vhflog3.html
-            +-- app.css
             +-- app.js
             +-- favicon.ico
             +-- index.css

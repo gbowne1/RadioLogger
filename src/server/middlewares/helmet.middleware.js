@@ -26,6 +26,10 @@ const directives = {
     "blob:",
     "https://i.stack.imgur.com"
 
+  ],
+  connectSrc: [
+    "'self'",
+    "https://cdnjs.cloudflare.com"
   ]
 }
 

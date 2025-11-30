@@ -1,8 +1,8 @@
-const boom = require('boom');
+const boom = require('@hapi/boom');
 const jwt = require('jsonwebtoken');
-const { API_SECRET } = require('@config/secrets')
-const { find } = require('@services/auth.service');
-const logger = require('@utils/logger');
+const { API_SECRET } = require('../config/secrets')
+const { find } = require('../services/auth.service');
+const logger = require('../utils/logger');
 
 const getToken = (authHeader) => {
   const bearer = authHeader.split(' ');
@@ -13,8 +13,10 @@ const getToken = (authHeader) => {
 module.exports = async (req, res, next) => {
   const authHeader = req.headers['authorization'];
 
-  if (!authHeader)
+  if (!authHeader) {
     next(boom.unauthorized('The request cannot be processed'));
+    return;
+  }
 
   const token = getToken(authHeader);
   try {

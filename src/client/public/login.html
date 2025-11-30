@@ -21,13 +21,13 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="../public/css/login.css" />
+  <link rel="stylesheet" href="./css/login.css" />
 </head>
 
 <body>
   <form id="loginForm" method="post" action="/login">
     <div class="login_box">
-      <h2>Login</h2>
+      <h2>Login..</h2>
 
       <div class="user_box">
         <input type="text" required id="tbxUsername" name="username" />
@@ -42,8 +42,11 @@
       <button type="submit" id="btnLogin">Submit</button>
     </div>
   </form>
+  <!--script src="/js/signUp.js"></script>
+  <script src="/js/formEvents.js"></script>
+  <script src="/js/resetPassword.js"></script>
+  <script src="/app.js"></script-->
 
-  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
     integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -53,7 +56,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
     integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="./js/login.js" crossorigin></script>
+  <script type="module" src="./app.js" crossorigin></script>
 </body>
 
 </html>

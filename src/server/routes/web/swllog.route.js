@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { show } = require('@controllers/web/swllog.controller');
+const { show } = require('../../controllers/web/swllog.controller');
 
 const router = Router();
 

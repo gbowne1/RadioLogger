@@ -1,12 +1,13 @@
 {
-  "name": "radiologger",
-  "version": "1.0.0",
-  "scripts": {
-    "start": "nodemon",
-    "dev": "concurrently \"npm run start --prefix src/server\" \"npm run start --prefix src/client\""
-  },
-  "devDependencies": {
-    "concurrently": "^9.0.1",
-    "nodemon": "^2.0.22"
-  }
+    "name": "radiologger",
+    "version": "1.0.0",
+    "scripts":
+    {
+        "start": "nodemon",
+        "dev": "npm run start --prefix src/server"
+    },
+    "devDependencies":
+    {
+        "nodemon": "^3.1.11"
+    }
 }
