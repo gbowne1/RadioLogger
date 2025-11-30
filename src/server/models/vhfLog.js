@@ -1,4 +1,3 @@
-const express = require('express');
 const mongoose = require('mongoose');
 
 const vhfLogSchema = new mongoose.Schema({
@@ -9,3 +8,4 @@ const vhfLogSchema = new mongoose.Schema({
 
 // Define the log model
 const vhfLog = mongoose.model('Log', vhfLogSchema)
+module.exports = vhfLog;

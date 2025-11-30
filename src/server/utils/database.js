@@ -9,10 +9,7 @@ class Database {
 
   async connect() {
     try {
-      await mongoose.connect(this.mongoUrl, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      })
+      await mongoose.connect(this.mongoUrl, {})
     } catch(err) {
       logger.error(err);
       throw new Error('Error to connect database');

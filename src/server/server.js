@@ -1,6 +1,7 @@
 const app = require('./app');
-const logger = require('./utils/logger');
-const { PORT } = require('./config/variables');
+const logger = require('@utils/logger');
+const { PORT } = require('@config/variables');
+const net = require('net');
 
 const server = app.listen(PORT, '0.0.0.0', error => {
   if (error) {

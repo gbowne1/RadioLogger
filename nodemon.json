@@ -1,7 +1,17 @@
 {
-  "watch": ["dist/server"],
-  "type": "object",
-  "ext": "js",
-  "exec": "node dist/server/bundle.js",
-  "$schema": "http://json-schema.org/draft-04/schema#"
+  "watch": [
+    "src/server/"
+  ],
+  "ext": "js,json",
+  "exec": "node src/server/server.js",
+  "ignore": [
+    "src/client/",
+    "src/server/data/",
+    "*.test.js",
+    "package.json",
+    "package-lock.json"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  }
 }
