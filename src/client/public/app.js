@@ -8,14 +8,13 @@ import { initSwlLog } from './js/swllog.js';
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  initThemeToggle();
-  initVhfLog();
-  initPasswordReset();
-  initSignUp();
-  initScanLog();
-  initLogin();
-  initProfile();
-  initSwlLog();
+  if (document.getElementById("register_submit")) initSignUp();
+  if (document.querySelector('form[action="resetPassword.js"]')) initPasswordReset();
+  if (document.getElementById("loginForm")) initLogin();
+  if (document.getElementById("vhfLogContainer")) initVhfLog();
+  if (document.getElementById("scanLogContainer")) initScanLog();
+  if (document.getElementById("profilePage")) initProfile();
+  if (document.getElementById("swlLogContainer")) initSwlLog();
 
   // Redirect to login page
   const button = document.getElementById('index_login_button');
