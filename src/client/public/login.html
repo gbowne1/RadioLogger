@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Radio Logger</title>
+  <title>Radio Logger – Login</title>
+
   <meta name="description" content="A Radio Logging Application for SWL and Amateur Radio" />
   <meta name="theme-color" content="gray" />
 
@@ -13,21 +14,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
-    integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" />
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="./css/login.css" />
 </head>
 
 <body>
+
+  <!-- LOGIN FORM -->
   <form id="loginForm" method="post" action="/login">
     <div class="login_box">
-      <h2>Login..</h2>
+      <h2>Login</h2>
 
       <div class="user_box">
         <input type="text" required id="tbxUsername" name="username" />
@@ -40,23 +43,63 @@
       </div>
 
       <button type="submit" id="btnLogin">Submit</button>
+
+      <p class="mt-3">
+        <a href="#" id="showReset">Forgot your password?</a>
+      </p>
     </div>
   </form>
-  <!--script src="/js/signUp.js"></script>
-  <script src="/js/formEvents.js"></script>
-  <script src="/js/resetPassword.js"></script>
-  <script src="/app.js"></script-->
 
+  <!-- RESET PASSWORD FORM (hidden by default) -->
+  <form id="resetPasswordForm" style="display:none;">
+    <div class="login_box">
+      <h2>Reset Password</h2>
+
+      <div class="user_box">
+        <input type="text" required id="resetEmail" name="email" />
+        <label for="resetEmail">Email</label>
+      </div>
+
+      <div class="user_box">
+        <input type="password" required id="resetOldPassword" name="oldPassword" />
+        <label for="resetOldPassword">Old Password</label>
+      </div>
+
+      <div class="user_box">
+        <input type="password" required id="resetNewPassword" name="newPassword" />
+        <label for="resetNewPassword">New Password</label>
+      </div>
+
+      <button type="submit" id="btnResetPassword">Reset Password</button>
+
+      <p class="mt-3">
+        <a href="#" id="showLogin">Back to login</a>
+      </p>
+    </div>
+  </form>
+
+  <!-- JS Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
-    integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
-    integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script type="module" src="./app.js" crossorigin></script>
-</body>
+    crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+    crossorigin="anonymous"></script>
+
+  <!-- Your App Logic -->
+  <script type="module" src="./app.js"></script>
+
+  <!-- Toggle Logic -->
+  <script>
+    document.getElementById("showReset").addEventListener("click", () => {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("resetPasswordForm").style.display = "block";
+    });
+
+    document.getElementById("showLogin").addEventListener("click", () => {
+      document.getElementById("resetPasswordForm").style.display = "none";
+      document.getElementById("loginForm").style.display = "block";
+    });
+  </script>
+
+</body>
 </html>
