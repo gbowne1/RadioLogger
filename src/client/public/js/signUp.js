@@ -15,7 +15,7 @@ function initPasswordReset() {
       newPassword: form.pass_new.value
     };
 
-    fetch('/reset-password', {
+    fetch('/api/v1/password/reset', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
