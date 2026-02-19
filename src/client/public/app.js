@@ -8,6 +8,8 @@ import { initSwlLog } from './js/swllog.js';
 
 document.addEventListener("DOMContentLoaded", function () {
 
+  initThemeToggle();
+  
   if (document.getElementById("register_submit")) initSignUp();
   if (document.querySelector('form[action="resetPassword.js"]')) initPasswordReset();
   if (document.getElementById("loginForm")) initLogin();
