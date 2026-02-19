@@ -1,6 +1,6 @@
 
 function initPasswordReset() {
-  const form = document.querySelector('form[action="resetPassword.js"]');
+  const form = document.getElementById("resetPasswordForm");
 
   if (!form) {
     return;
