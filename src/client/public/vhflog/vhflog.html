@@ -1,142 +1,480 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
-    <meta name="keywords" content="">
-    <title>Radio Logger</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
-      integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
-      integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
-      integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
-      integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="../css/vhflog.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
+  <meta name="keywords" content="radio, logging, amateur radio, VHF, UHF, SWL">
+  <title>Radio Logger - VHF/UHF Log Sheet</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+    integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+    integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
+    integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
+    integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="../css/vhflog.css">
+  <style>
+    body {
+      font-family: "Roboto", "Open Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      padding-top: 70px;
+    }
+    .quick-entry {
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #dee2e6;
+    }
+    .quick-entry input, .quick-entry select {
+      max-width: 150px;
+    }
+    .log-table-container {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .prop-icon {
+      margin-right: 5px;
+    }
+    .grid-square-valid {
+      border-color: #198754;
+    }
+    .grid-square-invalid {
+      border-color: #dc3545;
+    }
+  </style>
+</head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDrawer"
-          aria-controls="offcanvasDrawer" aria-label="sidebartoggle">
-          <span class="navbar-toggler-icon"></span>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDrawer"
+        aria-controls="offcanvasDrawer" aria-label="sidebartoggle">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <i class="fas fa-broadcast-tower me-2"></i>Radio Logger
+      </a>
+      <div class="navbar-nav">
+        <button id="themeToggle" class="btn" aria-label="theme">
+          <i class="fas fa-moon"></i>
         </button>
-        <a class="navbar-brand" href="/">
-        </a>
-        <div class="navbar-nav">
-          <button id="themeToggle" class="btn" aria-label="theme">
-            <i class="fas fa-moon"></i>
+        <button class="btn">
+          <i class="fas fa-bell" aria-label="notificationbell"></i>
+        </button>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+            aria-label="usermenu">
+            <i class="fas fa-user"></i>
           </button>
-          <button class="btn">
-            <i class="fas fa-bell" aria-label="notificaionbell"></i>
-          </button>
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-              aria-label="usermenu">
-              <i class="fas fa-user"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="../profile/profile.html">Profile</a></li>
-              <li><a class="dropdown-item" href="../settings/settings.html">Settings</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
-            </ul>
-          </div>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="../profile/profile.html">Profile</a></li>
+            <li><a class="dropdown-item" href="../settings/settings.html">Settings</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
         </div>
-      </div>
-    </nav>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDrawer">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title">Menu</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <!-- Add your menu items here -->
       </div>
     </div>
-    <div class="container-fluid">
-      <h1>UHF/VHF Log Sheet</h1>
-      <p>Fields marked with an asterisk (*) are required.</p>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="frequency">Frequency:</label>
-          <input type="text" pattern="^(3[0-9][.][0-9]{1,5}|[3-9][1-9]|[4-9][0-9]|[12][0-9]{2}|300[.][0]{1,5})$"
-            id="frequency" name="frequency" required>
+  </nav>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDrawer">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Menu items here -->
+    </div>
+  </div>
+
+  <div class="container-fluid px-4">
+    <h1 class="mb-3">UHF/VHF Log Sheet</h1>
+    <p class="text-muted">Fields marked with an asterisk (*) are required.</p>
+
+    <!-- Quick Entry Bar -->
+    <div class="quick-entry mb-4">
+      <h5><i class="fas fa-bolt me-2"></i>Quick Entry</h5>
+      <div class="row g-2 align-items-end">
+        <div class="col-auto">
+          <label for="quick-callsign" class="form-label">Callsign</label>
+          <input type="text" class="form-control" id="quick-callsign" placeholder="e.g., W1AW" maxlength="10">
         </div>
-        <div class="col-md-6">
-          <label for="mode">Mode:</label>
-          <select id="mode" name="mode">
+        <div class="col-auto">
+          <label for="quick-freq" class="form-label">Freq (MHz)</label>
+          <input type="number" class="form-control" id="quick-freq" placeholder="146.520" step="0.001" min="30" max="3000">
+        </div>
+        <div class="col-auto">
+          <label for="quick-mode" class="form-label">Mode</label>
+          <select class="form-select" id="quick-mode">
+            <option value="FM">FM</option>
             <option value="SSB">SSB</option>
             <option value="CW">CW</option>
+            <option value="FT8">FT8</option>
+          </select>
+        </div>
+        <div class="col-auto">
+          <label for="quick-rst" class="form-label">RST</label>
+          <input type="text" class="form-control" id="quick-rst" placeholder="59" pattern="[1-5][1-9][1-9]">
+        </div>
+        <div class="col-auto">
+          <button type="button" class="btn btn-primary" onclick="copyQuickToMain()">
+            <i class="fas fa-arrow-down me-1"></i>Copy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Contact Form -->
+    <form id="vhflog-form" class="mb-4">
+      <div class="row g-3">
+        <!-- Call Sign -->
+        <div class="col-md-6">
+          <label for="callsign" class="form-label">Call Sign *</label>
+          <input type="text" class="form-control" id="callsign" name="callsign" required maxlength="10"
+            placeholder="The station you contacted">
+        </div>
+
+        <!-- Date & Time (UTC) -->
+        <div class="col-md-3">
+          <label for="date-utc" class="form-label">Date (UTC) *</label>
+          <input type="date" class="form-control" id="date-utc" name="date" required>
+        </div>
+        <div class="col-md-3">
+          <label for="time-utc" class="form-label">Time (UTC) *</label>
+          <input type="time" class="form-control" id="time-utc" name="time" required>
+        </div>
+
+        <!-- Frequency -->
+        <div class="col-md-4">
+          <label for="frequency" class="form-label">Frequency (MHz) *</label>
+          <input type="number" class="form-control" id="frequency" name="frequency" required
+            placeholder="e.g., 146.520 or 50.125" step="0.001" min="30" max="3000">
+        </div>
+
+        <!-- Band -->
+        <div class="col-md-4">
+          <label for="band" class="form-label">Band *</label>
+          <select class="form-select" id="band" name="band" required>
+            <option value="">Select Band</option>
+            <option value="2m">2m</option>
+            <option value="6m">6m</option>
+            <option value="70cm">70cm</option>
+            <option value="23cm">23cm</option>
+          </select>
+        </div>
+
+        <!-- Mode -->
+        <div class="col-md-4">
+          <label for="mode" class="form-label">Mode *</label>
+          <select class="form-select" id="mode" name="mode" required>
+            <option value="">Select Mode</option>
             <option value="FM">FM</option>
+            <option value="SSB">SSB</option>
+            <option value="CW">CW</option>
+            <option value="FT8">FT8</option>
             <option value="AM">AM</option>
           </select>
         </div>
+
+        <!-- Power -->
+        <div class="col-md-4">
+          <label for="power" class="form-label">Power (Watts)</label>
+          <input type="number" class="form-control" id="power" name="power" placeholder="e.g., 50" step="1" min="0">
+        </div>
+
+        <!-- RST Sent -->
+        <div class="col-md-4">
+          <label for="rst-sent" class="form-label">RST Sent</label>
+          <input type="text" class="form-control" id="rst-sent" name="rst-sent" pattern="[1-5][1-9][1-9]"
+            placeholder="e.g., 59">
+        </div>
+
+        <!-- RST Received -->
+        <div class="col-md-4">
+          <label for="rst-received" class="form-label">RST Received</label>
+          <input type="text" class="form-control" id="rst-received" name="rst-received" pattern="[1-5][1-9][1-9]"
+            placeholder="e.g., 59">
+        </div>
+
+        <!-- Grid Square -->
+        <div class="col-md-4">
+          <label for="grid-square" class="form-label">Grid Square (Maidenhead)</label>
+          <input type="text" class="form-control" id="grid-square" name="grid-square"
+            pattern="[A-R]{2}[0-9]{2}[a-x]{2}" placeholder="e.g., CN87" maxlength="6">
+          <div class="form-text">4 or 6 character locator (e.g., CN87, CN87us)</div>
+        </div>
+
+        <!-- Propagation Mode -->
+        <div class="col-md-4">
+          <label for="prop-mode" class="form-label">Propagation Mode</label>
+          <select class="form-select" id="prop-mode" name="prop-mode">
+            <option value="">Select Propagation</option>
+            <option value="AU">Aurora (AU)</option>
+            <option value="ES">Sporadic E (Es)</option>
+            <option value="TR">Tropospheric Ducting (TR)</option>
+            <option value="MS">Meteor Scatter (MS)</option>
+            <option value="SAT">Satellite (SAT)</option>
+            <option value="NONE">None (Direct)</option>
+          </select>
+        </div>
+
+        <!-- Location -->
+        <div class="col-md-4">
+          <label for="location" class="form-label">Location</label>
+          <input type="text" class="form-control" id="location" name="location" placeholder="QTH of station">
+        </div>
+
+        <!-- Link Type -->
+        <div class="col-md-4">
+          <label for="link-type" class="form-label">Link Type</label>
+          <select class="form-select" id="link-type" name="link-type">
+            <option value="DIRECT">Direct/Simplex</option>
+            <option value="REPEATER">Repeater</option>
+            <option value="NETWORK">Network Link</option>
+          </select>
+        </div>
+
+        <!-- Network Sub-Mode -->
+        <div class="col-md-4" id="network-submode-container" style="display: none;">
+          <label for="network-submode" class="form-label">Network Sub-Mode</label>
+          <select class="form-select" id="network-submode" name="network-submode">
+            <option value="">Select Sub-Mode</option>
+            <option value="ECHOLINK">EchoLink</option>
+            <option value="IRLP">IRLP</option>
+            <option value="WIRES-X">WIRES-X</option>
+            <option value="ALLSTAR">AllStar</option>
+          </select>
+        </div>
+
+        <!-- Net Name -->
+        <div class="col-md-4" id="net-name-container" style="display: none;">
+          <label for="net-name" class="form-label">Net Name</label>
+          <input type="text" class="form-control" id="net-name" name="net-name" placeholder="e.g., Skywarn, ARES">
+        </div>
+
+        <!-- Was This a Net? -->
+        <div class="col-md-4">
+          <div class="form-check mt-4">
+            <input class="form-check-input" type="checkbox" id="was-net" name="was-net">
+            <label class="form-check-label" for="was-net">
+              Was this a Net?
+            </label>
+          </div>
+        </div>
+
+        <!-- Repeater Offset -->
+        <div class="col-md-4" id="repeater-offset-container" style="display: none;">
+          <label for="repeater-offset" class="form-label">Repeater Offset</label>
+          <input type="number" class="form-control" id="repeater-offset" name="repeater-offset" step="0.1"
+            placeholder="Offset in MHz">
+        </div>
+
+        <!-- Comments -->
+        <div class="col-12">
+          <label for="comments" class="form-label">Comments</label>
+          <textarea class="form-control" id="comments" name="comments" rows="3"
+            placeholder="Additional notes about the contact"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-12">
+          <button type="submit" class="btn btn-success btn-lg" id="vhflog_submit">
+            <i class="fas fa-save me-2"></i>Submit Contact
+          </button>
+        </div>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="date">Date:</label>
-          <input type="date" id="date" name="date">
-        </div>
-        <div class="col-md-6">
-          <label for="time">Time:</label>
-          <input type="time" id="time" name="time">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="callsign">Call Sign:</label>
-          <input type="text" id="callsign" name="callsign">
-        </div>
-        <div class="col-md-6">
-          <label for="rst-sent">RST Sent:</label>
-          <input type="text" id="rst-sent" name="rst-sent">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="rst-received">RST Received:</label>
-          <input type="text" id="rst-received" name="rst-received">
-        </div>
-        <div class="col-md-6">
-          <label for="location">Location:</label>
-          <input type="text" id="location" name="location">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <label for="comments">Comments:</label>
-          <textarea id="comments" name="comments"></textarea>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <input id="vhflog_submit" type="submit" value="Submit">
-        </div>
-      </div>
+    </form>
+
+    <!-- Log Table -->
+    <div class="log-table-container">
+      <h3 class="mt-4"><i class="fas fa-list me-2"></i>Recent Contacts</h3>
+      <table class="table table-striped table-hover" id="log-table">
+        <thead class="table-dark">
+          <tr>
+            <th>Date/Time (UTC)</th>
+            <th>Call Sign</th>
+            <th>Freq (MHz)</th>
+            <th>Mode</th>
+            <th>RST Sent</th>
+            <th>RST Recv</th>
+            <th>Grid</th>
+            <th>Prop Mode</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="log-table-body">
+          <!-- Log entries will be added here dynamically -->
+        </tbody>
+      </table>
     </div>
-    <script type="module" src="../app.js"></script>
-  </body>
+  </div>
+
+  <script type="module" src="../app.js"></script>
+  <script>
+    // Initialize with current UTC date/time
+    function initDateTime() {
+      const now = new Date();
+      const utcDate = now.toISOString().split('T')[0];
+      const utcTime = now.toTimeString().split(' ')[0].substring(0, 5);
+      document.getElementById('date-utc').value = utcDate;
+      document.getElementById('time-utc').value = utcTime;
+    }
+
+    // Copy quick entry values to main form
+    function copyQuickToMain() {
+      document.getElementById('callsign').value = document.getElementById('quick-callsign').value;
+      document.getElementById('frequency').value = document.getElementById('quick-freq').value;
+      document.getElementById('mode').value = document.getElementById('quick-mode').value;
+      document.getElementById('rst-sent').value = document.getElementById('quick-rst').value;
+      document.getElementById('callsign').focus();
+    }
+
+    // Show/hide network submode based on link type
+    document.getElementById('link-type').addEventListener('change', function() {
+      const networkContainer = document.getElementById('network-submode-container');
+      const netNameContainer = document.getElementById('net-name-container');
+      const repeaterContainer = document.getElementById('repeater-offset-container');
+
+      if (this.value === 'NETWORK') {
+        networkContainer.style.display = 'block';
+        netNameContainer.style.display = 'block';
+        repeaterContainer.style.display = 'none';
+      } else if (this.value === 'REPEATER') {
+        networkContainer.style.display = 'none';
+        netNameContainer.style.display = 'none';
+        repeaterContainer.style.display = 'block';
+      } else {
+        networkContainer.style.display = 'none';
+        netNameContainer.style.display = 'none';
+        repeaterContainer.style.display = 'none';
+      }
+    });
+
+    // Show net name when "was-net" is checked
+    document.getElementById('was-net').addEventListener('change', function() {
+      const netNameContainer = document.getElementById('net-name-container');
+      netNameContainer.style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Validate grid square format
+    document.getElementById('grid-square').addEventListener('input', function() {
+      const pattern = /^[A-R]{2}[0-9]{2}[a-x]{0,2}$/;
+      if (pattern.test(this.value) || this.value === '') {
+        this.classList.remove('grid-square-invalid');
+        this.classList.add('grid-square-valid');
+      } else {
+        this.classList.remove('grid-square-valid');
+        this.classList.add('grid-square-invalid');
+      }
+    });
+
+    // Form submission handler
+    document.getElementById('vhflog-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Collect form data
+      const formData = {
+        date: document.getElementById('date-utc').value,
+        time: document.getElementById('time-utc').value,
+        callsign: document.getElementById('callsign').value,
+        frequency: document.getElementById('frequency').value,
+        band: document.getElementById('band').value,
+        mode: document.getElementById('mode').value,
+        power: document.getElementById('power').value,
+        rstSent: document.getElementById('rst-sent').value,
+        rstReceived: document.getElementById('rst-received').value,
+        gridSquare: document.getElementById('grid-square').value,
+        propMode: document.getElementById('prop-mode').value,
+        location: document.getElementById('location').value,
+        linkType: document.getElementById('link-type').value,
+        networkSubmode: document.getElementById('network-submode').value,
+        netName: document.getElementById('net-name').value,
+        wasNet: document.getElementById('was-net').checked,
+        repeaterOffset: document.getElementById('repeater-offset').value,
+        comments: document.getElementById('comments').value
+      };
+
+      // Add to log table
+      addLogEntry(formData);
+
+      // Reset form
+      this.reset();
+      initDateTime();
+    });
+
+    // Add entry to log table
+    function addLogEntry(data) {
+      const tbody = document.getElementById('log-table-body');
+      const row = document.createElement('tr');
+
+      // Determine propagation icon
+      let propIcon = '';
+      let propTitle = 'Direct';
+      switch (data.propMode) {
+        case 'AU':
+          propIcon = '<i class="fas fa-snowflake prop-icon text-primary" title="Aurora"></i>';
+          propTitle = 'Aurora';
+          break;
+        case 'ES':
+          propIcon = '<i class="fas fa-bolt prop-icon text-warning" title="Sporadic E"></i>';
+          propTitle = 'Sporadic E';
+          break;
+        case 'TR':
+          propIcon = '<i class="fas fa-wind prop-icon text-info" title="Tropospheric Ducting"></i>';
+          propTitle = 'Tropo';
+          break;
+        case 'MS':
+          propIcon = '<i class="fas fa-meteor prop-icon text-danger" title="Meteor Scatter"></i>';
+          propTitle = 'Meteor Scatter';
+          break;
+        case 'SAT':
+          propIcon = '<i class="fas fa-satellite prop-icon text-success" title="Satellite"></i>';
+          propTitle = 'Satellite';
+          break;
+        default:
+          propIcon = '<i class="fas fa-wifi prop-icon text-muted"></i>';
+      }
+
+      row.innerHTML = `
+        <td>${data.date} ${data.time}</td>
+        <td><strong>${data.callsign}</strong></td>
+        <td>${data.frequency}</td>
+        <td>${data.mode}</td>
+        <td>${data.rstSent || '-'}</td>
+        <td>${data.rstReceived || '-'}</td>
+        <td>${data.gridSquare || '-'}</td>
+        <td>${propIcon} ${propTitle}</td>
+        <td>${data.wasNet ? '<i class="fas fa-users text-primary" title="Net Contact"></i>' : ''}</td>
+      `;
+
+      tbody.insertBefore(row, tbody.firstChild);
+    }
+
+    // Initialize on page load
+    initDateTime();
+  </script>
+</body>
 
 </html>
