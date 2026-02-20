@@ -14,7 +14,10 @@ const { wrapErrors, errorHandler} = require('./middlewares/errorsHandlers.middle
 console.log('app.js, setting up middleware...');
 
 // Middleware setup
-app.use(cors(/*{ credentials: true, origin: true }*/));
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 
 app.use(express.json());
 app.use(cookieParser());
