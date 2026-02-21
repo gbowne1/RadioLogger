@@ -1,142 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
-    <meta name="keywords" content="">
-    <title>Radio Logger</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
-      integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
-      integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
-      integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
-      integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="../css/vhflog.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Radio Logging Application for SWL and Amateur Radio">
+  <meta name="keywords" content="">
+  <title>Radio Logger</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"
+    integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"
+    integrity="sha512-8Y8eGK92dzouwpROIppwr+0kPauu0qqtnzZZNEF8Pat5tuRNJxJXCkbQfJ0HlUG3y1HB3z18CSKmUo7i2zcPpg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css"
+    integrity="sha512-XWTTruHZEYJsxV3W/lSXG1n3Q39YIWOstqvmFsdNEEQfHoZ6vm6E9GK2OrF6DSJSpIbRbi+Nn0WDPID9O7xB2Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
+    integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="../css/vhflog.css">
+</head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDrawer"
-          aria-controls="offcanvasDrawer" aria-label="sidebartoggle">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="/">
-        </a>
-        <div class="navbar-nav">
-          <button id="themeToggle" class="btn" aria-label="theme">
-            <i class="fas fa-moon"></i>
-          </button>
-          <button class="btn">
-            <i class="fas fa-bell" aria-label="notificaionbell"></i>
-          </button>
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
-              aria-label="usermenu">
-              <i class="fas fa-user"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="../profile/profile.html">Profile</a></li>
-              <li><a class="dropdown-item" href="../settings/settings.html">Settings</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDrawer">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title">Menu</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <!-- Add your menu items here -->
-      </div>
-    </div>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container-fluid">
-      <h1>UHF/VHF Log Sheet</h1>
-      <p>Fields marked with an asterisk (*) are required.</p>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="frequency">Frequency:</label>
-          <input type="text" pattern="^(3[0-9][.][0-9]{1,5}|[3-9][1-9]|[4-9][0-9]|[12][0-9]{2}|300[.][0]{1,5})$"
-            id="frequency" name="frequency" required>
-        </div>
-        <div class="col-md-6">
-          <label for="mode">Mode:</label>
-          <select id="mode" name="mode">
-            <option value="SSB">SSB</option>
-            <option value="CW">CW</option>
-            <option value="FM">FM</option>
-            <option value="AM">AM</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="date">Date:</label>
-          <input type="date" id="date" name="date">
-        </div>
-        <div class="col-md-6">
-          <label for="time">Time:</label>
-          <input type="time" id="time" name="time">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="callsign">Call Sign:</label>
-          <input type="text" id="callsign" name="callsign">
-        </div>
-        <div class="col-md-6">
-          <label for="rst-sent">RST Sent:</label>
-          <input type="text" id="rst-sent" name="rst-sent">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="rst-received">RST Received:</label>
-          <input type="text" id="rst-received" name="rst-received">
-        </div>
-        <div class="col-md-6">
-          <label for="location">Location:</label>
-          <input type="text" id="location" name="location">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <label for="comments">Comments:</label>
-          <textarea id="comments" name="comments"></textarea>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <input id="vhflog_submit" type="submit" value="Submit">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDrawer"
+        aria-controls="offcanvasDrawer" aria-label="sidebartoggle">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+      </a>
+      <div class="navbar-nav">
+        <button id="themeToggle" class="btn" aria-label="theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="btn">
+          <i class="fas fa-bell" aria-label="notificaionbell"></i>
+        </button>
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+            aria-label="usermenu">
+            <i class="fas fa-user"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="../profile/profile.html">Profile</a></li>
+            <li><a class="dropdown-item" href="../settings/settings.html">Settings</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
         </div>
       </div>
     </div>
-    <script type="module" src="../app.js"></script>
-  </body>
+  </nav>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDrawer">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- Add your menu items here -->
+    </div>
+  </div>
+  <div class="container mt-5 pt-4">
+    <div class="card shadow">
+      <div class="card-header bg-primary text-white">
+        <h4>UHF/VHF Log Entry</h4>
+      </div>
+      <div class="card-body">
+
+        <form id="vhfLogForm" method="POST">
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Callsign *</label>
+              <input type="text" class="form-control" name="callsign" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Date & Time (UTC) *</label>
+              <small class="text-muted d-block">Please enter time in UTC</small>
+              <input type="datetime-local" class="form-control" name="datetime" required>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Frequency (MHz) *</label>
+              <input type="number" step="0.001" class="form-control" name="frequency" required>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Band</label>
+              <input type="text" class="form-control" name="band" placeholder="e.g., 2m, 70cm">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">Mode</label>
+              <select class="form-select" name="mode">
+                <option value="">Select Mode</option>
+                <option value="SSB">SSB</option>
+                <option value="CW">CW</option>
+                <option value="FM">FM</option>
+                <option value="AM">AM</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Power (Watts)</label>
+              <input type="number" class="form-control" name="power" min="0">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label">RST Report</label>
+              <input type="text" maxlength="3" class="form-control" name="rst">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Grid Square</label>
+              <input type="text" class="form-control" name="grid">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Propagation Mode</label>
+            <select class="form-select" name="propagation">
+              <option value="">Select Mode</option>
+              <option value="Line of Sight">Line of Sight</option>
+              <option value="Tropospheric">Tropospheric</option>
+              <option value="Sporadic E">Sporadic E</option>
+              <option value="Meteor Scatter">Meteor Scatter</option>
+              <option value="Aurora">Aurora</option>
+            </select>
+          </div>
+
+          <div class="text-end">
+            <button type="submit" class="btn btn-success">
+              <i class="fas fa-save"></i> Save Log
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <script type="module" src="../app.js"></script>
+</body>
 
 </html>
