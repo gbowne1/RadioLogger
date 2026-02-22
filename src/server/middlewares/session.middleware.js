@@ -1,8 +1,7 @@
 const session = require('express-session');
-const { SESSION_SECRET } = require('../config/secrets');
 
 module.exports = session({
-  secret: SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || 'fallbacksecret',
   resave: false,
-  saveUninitialized: true
-})
+  saveUninitialized: false
+});
