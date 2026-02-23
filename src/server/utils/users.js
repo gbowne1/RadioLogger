@@ -4,14 +4,15 @@ const mongoose = require('mongoose');
 const MONGO_URI = 'mongodb://localhost:27017/radiologger';
 
 // Connect to MongoDB
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose
+  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
 // Define the User schema
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  password: { type: String, required: true },
 });
 
 // Create the User model
@@ -24,14 +25,16 @@ async function createTestUser(username, password) {
     console.log('User already exists:', existingUser.username);
     return;
   }
-}
-const newUser = new User({ username, password });
+
+  const newUser = new User({ username, password });
+
   try {
     await newUser.save();
     console.log('Test user created successfully:', newUser.username);
   } catch (err) {
     console.error('Error creating user:', err.message);
   }
+}
 
 // Function to list all users
 async function listUsers() {
