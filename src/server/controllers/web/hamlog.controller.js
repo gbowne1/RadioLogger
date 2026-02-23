@@ -1,3 +1,3 @@
-exports.show = (req, res, next) => {
-  res.render('hamlog/hamlog');
+exports.show = (req, res) => {
+  res.render('hamlog/hamlog')
 }

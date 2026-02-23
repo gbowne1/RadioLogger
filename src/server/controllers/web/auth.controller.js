@@ -1,11 +1,12 @@
-const boom = require('@hapi/boom');
-const logger = require('../../utils/logger');
-
-exports.show = (req, res, next) => {
-  res.render('login');
-}
+const boom = require('@hapi/boom')
+const logger = require('../../utils/logger')
 
 exports.destroy = (req, res, next) => {
-  req.session.destroy();
-  res.render('login');
-};
+  try {
+    req.session.destroy()
+    res.render('login')
+  } catch (err) {
+    logger.error('Error destroying session:', err)
+    next(boom.badImplementation(err.message))
+  }
+}

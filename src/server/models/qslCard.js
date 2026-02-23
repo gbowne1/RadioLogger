@@ -35,3 +35,5 @@ const qslCardSchema = new mongoose.Schema({
 });
 
 const QslCard = mongoose.model('QslCard', qslCardSchema);
+
+module.exports = QslCard;

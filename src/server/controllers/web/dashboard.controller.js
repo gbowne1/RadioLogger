@@ -1,6 +1,11 @@
-const boom = require('@hapi/boom');
-const logger = require('../../utils/logger');
+const boom = require('@hapi/boom')
+const logger = require('../../utils/logger')
 
 exports.show = (req, res, next) => {
-  res.render('dashboard/dashboard')
-};
+  try {
+    res.render('dashboard/dashboard')
+  } catch (err) {
+    logger.error('Dashboard render error:', err)
+    next(boom.badImplementation(err.message))
+  }
+}
