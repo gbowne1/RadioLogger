@@ -51,7 +51,7 @@ async function listUsers() {
 createTestUser('test_user', 'secure_password'); // Replace with your desired username and password
 
 // Uncomment to list all users
-// listUsers();
+  listUsers();
 
 // Close the connection before exiting
 mongoose.connection.once('close', () => {
