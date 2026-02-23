@@ -1,27 +1,22 @@
 {
-    "env":
-    {},
-    "extends": "",
-    "globals":
-    {},
-    "ignorePatterns": "",
-    "noInlineConfig": true,
-    "overrides":
-    [],
-    "parser": "",
-    "parserOptions":
-    {
-        "ecmaVersion": "latest",
-        "sourceType": "script",
-        "ecmaFeatures":
-        {}
-    },
-    "plugins":
-    [],
-    "reportUnusedDisableDirectives": true,
-    "root": false,
-    "rules":
-    {},
-    "settings":
-    {}
+  "env": {
+    "node": true,
+    "es2022": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "script"
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-undef": "error",
+    "no-console": "off"
+  }
 }
