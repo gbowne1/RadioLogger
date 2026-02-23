@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      # -------------------------
+      # Checkout
+      # -------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # -------------------------
+      # Node setup
+      # -------------------------
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # -------------------------
+      # Install dependencies
+      # -------------------------
+      - name: Install server dependencies
+        working-directory: src/server
+        run: npm install
+
+      - name: Install client dependencies
+        working-directory: src/client
+        run: npm install
+
+      # -------------------------
+      # Linting (server only)
+      # -------------------------
+      - name: Run ESLint
+        working-directory: src/server
+        run: npm run lint:check
+
+      # -------------------------
+      # Prettier formatting check
+      # -------------------------
+      - name: Run Prettier check
+        working-directory: src/server
+        run: npm run format:check
+
+      # -------------------------
+      # Server unit tests (Mocha/Chai)
+      # -------------------------
+      - name: Run server unit tests
+        working-directory: src/server
+        run: npx mocha "../tests/unit/server/**/*.test.js"
+
+      # -------------------------
+      # Client unit tests (Mocha/Chai)
+      # -------------------------
+      - name: Run client unit tests
+        working-directory: src/client
+        run: npx mocha "../tests/unit/client/**/*.test.js"
+
+      # -------------------------
+      # Optional: Build step
+      # (Only runs if you add a build script later)
+      # -------------------------
+      - name: Build client (optional)
+        if: ${{ hashFiles('src/client/webpack.config.js') != '' }}
+        working-directory: src/client
+        run: npm run build || echo "No build step defined"
